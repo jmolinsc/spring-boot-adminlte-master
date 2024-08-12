@@ -5,3 +5,13 @@
 
 
 
+(function (window, document, $, undefined) {
+    $(function () {
+        debugger
+        $("#btnNuevo").click(function () {
+            alert("test");
+        });
+        new DataTable('#example');
+        var a = 12;
+    })
+})(window, document, window.jQuery);
