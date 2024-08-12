@@ -1,0 +1,14 @@
+{
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Spring Boot-SistemApplication<spring-adminlte2>",
+            "request": "launch",
+            "cwd": "${workspaceFolder}",
+            "mainClass": "com.hendisantika.adminlte.SistemApplication",
+            "projectName": "spring-adminlte2",
+            "args": "",
+            "envFile": "${workspaceFolder}/.env"
+        }
+    ]
+}
