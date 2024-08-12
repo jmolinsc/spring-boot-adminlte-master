@@ -60,7 +60,7 @@ public class WebSecurityConfig {
         auth.jdbcAuthentication().dataSource(datasource);
 
         // add new user "user" with password "password" - password will be encrypted
-        if (!userDetailsService.userExists("naruto")) {
+        if (!userDetailsService.userExists("admin")) {
             List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
             authorities.add(new SimpleGrantedAuthority("USER"));
             User userDetails = new User("admin", encoder.encode("1234"), authorities);
