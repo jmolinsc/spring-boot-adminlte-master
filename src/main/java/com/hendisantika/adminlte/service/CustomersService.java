@@ -11,7 +11,7 @@ public class CustomersService extends AbstractService<Customers, Integer> {
 
     @Autowired
     private CustomersRepository customersRepository;
-
+  
     @Override
     protected JpaRepository<Customers, Integer> getRepository() {
         return customersRepository;
