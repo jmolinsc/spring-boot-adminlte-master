@@ -54,7 +54,7 @@ public class CustomerController {
     }
 
     @GetMapping("/edit/{id}")
-    public String edit(@PathVariable Long id, Model model) {
+    public String edit(@PathVariable Integer id, Model model) {
 
         model.addAttribute("customer", customerService.get(id));
         return "customers/form";
@@ -71,7 +71,7 @@ public class CustomerController {
     }
 
     @GetMapping("/delete/{id}")
-    public String delete(@PathVariable Long id) {
+    public String delete(@PathVariable Integer id) {
 
         customerService.delete(id);
         return "redirect:/customers";

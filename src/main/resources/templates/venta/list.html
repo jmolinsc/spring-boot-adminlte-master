@@ -8,54 +8,59 @@
     </head>
     <body>
         <section layout:fragment="header">
-            <h1>Clients</h1>
+            <h1>Ventas</h1>
             <ol class="breadcrumb">
                 <li><a href="/"><i class="fa fa-dashboard"></i> Dashboard</a></li>
                 <li class="active">Ventas</li>
             </ol>
         </section>
-       
+
         <div layout:fragment="content">
             <div class="box">
                 <div class="box-header with-border">
                     <h3 class="box-title">Lists</h3>
                     <div class="box-tools pull-right">
-                        <a href="/customers/add" type="button" class="btn btn-box-tool"><i class="fa fa-plus"></i></a>
+                        <a href="/venta/add" type="button" class="btn btn-box-tool"><i class="fa fa-plus"></i></a>
                         <br clear="all" />
                     </div>
                 </div>
+                <h1 th:text="${list}"></h1>
                 <div class="box-body no-padding">
                     <table class="table table-striped">
                         <tr>
-                            <th>ID</th>
-                            <th>Name</th>
-                            <th>Email</th>
-                            <th>Registration Date</th>
+                            <th>Id</th>
+                            <th>Mov</th>
+                            <th>Movid</th>
+                            <th>Fecha Emision</th>
+                            <th>Cliente</th>
+                            <th>Nombre</th>
                             <th>Action</th>
                         </tr>
                         <tr th:each="row : ${list}">
                             <td th:text="${row.id}"></td>
-                            <td th:text="${row.firstname + ' ' + row.lastname}"></td>
-                            <td th:text="${row.email}"></td>
-                            <td th:text="${#dates.format(row.addedDate, 'dd/MM/yyyy')}"></td>
-                            <td>
-                                <a th:href="${'/customers/edit/' + row.id}">Edit</a> |
-                                <a th:href="${'/customers/delete/' + row.id}">Delete</a>
+                            <td th:text="${row.mov}"></td>
+                            <td th:text="${row.movid}"></td>
+                            <td th:text="${row.fechaemision}"></td>
+                            <td th:text="${row.cteBycliente.cliente}"></td>
+                            <td th:text="${row.cteBycliente.nombre}"></td>
+                            <td>     
+                                <a th:href="${'/venta/edit/' + row.id}">Edit</a> 
+                                <a th:href="${'/venta/delete/' + row.id}">Delete</a>
                             </td>
                         </tr>
                     </table>
                 </div>
                 <div class="box-footer clearfix">
                     <ul class="pagination pagination-sm no-margin pull-right">
-                        <li><a href="/customers/1">First</a></li>
+                        <li><a href="/venta/1">First</a></li>
                         <li th:each="p : ${#numbers.sequence(1, endIndex/beginIndex)}" th:class="${p == currentIndex} ? 'active' : ''">
-                            <a th:href="${'/customers/' + p}" th:text="${p}"></a>
+                            <a th:href="${'/venta/' + p}" th:text="${p}"></a>
                         </li>
-                        <li><a th:href="${'/customers/' + endIndex}">Last</a></li>
+                        <li><a th:href="${'/venta/' + endIndex}">Last</a></li>
                     </ul>
                 </div>
             </div>
-            
+
         </div>
     </body>
 </html>

@@ -7,13 +7,13 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Service;
 
 @Service
-public class CustomersService extends AbstractService<Customers, Long> {
+public class CustomersService extends AbstractService<Customers, Integer> {
 
     @Autowired
     private CustomersRepository customersRepository;
 
     @Override
-    protected JpaRepository<Customers, Long> getRepository() {
+    protected JpaRepository<Customers, Integer> getRepository() {
         return customersRepository;
     }
 
