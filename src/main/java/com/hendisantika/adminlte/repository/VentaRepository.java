@@ -1,9 +1,9 @@
 package com.hendisantika.adminlte.repository;
 
 import com.hendisantika.adminlte.model.Venta;
-import java.util.Date;
+
 import java.util.List;
-import org.springframework.data.domain.Page;
+
 
 
 import org.springframework.data.jpa.repository.JpaRepository;

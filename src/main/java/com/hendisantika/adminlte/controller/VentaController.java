@@ -4,13 +4,12 @@
  */
 package com.hendisantika.adminlte.controller;
 
-import com.hendisantika.adminlte.model.Customers;
 import com.hendisantika.adminlte.model.Venta;
-import com.hendisantika.adminlte.repository.VentaRepository;
+
 import com.hendisantika.adminlte.service.VentaService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
-import org.springframework.data.domain.PageRequest;
+
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
