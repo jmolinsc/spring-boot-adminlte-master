@@ -56,7 +56,7 @@ public class VentaController {
 
     @GetMapping("/add")
     public String add(Model model) {
-        model.addAttribute("customer", new Customers());
+        model.addAttribute("venta", new Venta());
         return "venta/form";
     }
 
