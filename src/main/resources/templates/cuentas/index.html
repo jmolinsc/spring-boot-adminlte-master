@@ -1,12 +1,108 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
-<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="layout">
-<head>
-    <title>Dashboard</title>
-</head>
-<body>
-<div layout:fragment="content">
-    My Dashboard
-</div>
-</body>
+<html xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="layout">
+
+    <head>
+        <title>Cuentas</title>
+    </head>
+
+    <body>
+        <div layout:fragment="content">
+
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box bg-aqua">
+                        <a class="icon-link" href="/customers">
+                            <span class="info-box-icon"><i class="fa fa-bookmark-o"></i></span>
+                        </a>
+                        <div class="info-box-content">
+                            <span class="info-box-text">Clientes</span>
+                            <span class="info-box-number">41,410</span>
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 70%"></div>
+                            </div>
+                            <span class="progress-description">
+                                70% Increase in 30 Days
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box bg-green">
+                        <a class="icon-link" href="/art">
+                            <span class="info-box-icon"><i class="fa fa-thumbs-o-up"></i></span>
+                        </a>
+                        <div class="info-box-content">
+                            <span class="info-box-text">Articulos</span>
+                            <span class="info-box-number">41,410</span>
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 70%"></div>
+                            </div>
+                            <span class="progress-description">
+                                70% Increase in 30 Days
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box bg-yellow">
+
+                        <a class="icon-link" href="/alm">
+                            <span class="info-box-icon"><i class="fa fa-calendar"></i></span>
+                        </a>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Almacen</span>
+                            <span class="info-box-number">41,410</span>
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 70%"></div>
+                            </div>
+                            <span class="progress-description">
+                                70% Increase in 30 Days
+                            </span>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box bg-red">
+                        <a class="icon-link" href="/agente">
+                            <span class="info-box-icon"><i class="fa fa-comments-o"></i></span>
+                        </a>
+                        <div class="info-box-content">
+                            <span class="info-box-text">Agentes</span>
+                            <span class="info-box-number">41,410</span>
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 70%"></div>
+                            </div>
+                            <span class="progress-description">
+                                70% Increase in 30 Days
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3 col-sm-6 col-xs-12">
+                    <div class="info-box bg-green">
+                        <a class="icon-link" href="/prov">
+                            <span class="info-box-icon"><i class="fa fa-thumbs-o-up"></i></span>
+                        </a>
+
+                        <div class="info-box-content">
+                            <span class="info-box-text">Proveedor</span>
+                            <span class="info-box-number">41,410</span>
+                            <div class="progress">
+                                <div class="progress-bar" style="width: 70%"></div>
+                            </div>
+                            <span class="progress-description">
+                                70% Increase in 30 Days
+                            </span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </body>
+
 </html>

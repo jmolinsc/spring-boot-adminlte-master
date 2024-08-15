@@ -40,6 +40,7 @@ public abstract class AbstractService<T extends AbstractModel<Integer>, Integer 
     }
 
     public void update(T entity) {
+        
         Optional<T> getEntityOpt = getRepository().findById(entity.getId());
         T getEntity = getEntityOpt.get();
         getRepository().save(entity);

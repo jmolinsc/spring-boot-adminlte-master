@@ -11,4 +11,19 @@ public class DashboardController {
         return "dashboard/index";
     }
 
+    @GetMapping("/modulos")
+    public String Modulos() {
+        return "modulos/index";
+    }
+
+    @GetMapping("/cuentas")
+    public String Cuentas() {
+        return "cuentas/index";
+    }
+
+    @GetMapping("/config")
+    public String Config() {
+        return "config/index";
+    }
+
 }

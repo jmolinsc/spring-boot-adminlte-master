@@ -43,222 +43,229 @@ import lombok.ToString;
 
 public class Art implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Id
-	@Column(name = "ARTICULO", length = 20, nullable = false)
-	@JsonView
-	String articulo;
+    @Id
+    @Column(name = "ARTICULO", length = 20, nullable = false)
+    @JsonView
+    String articulo;
 
-	@Column(name = "CUENTA4", length = 20, nullable = true)
-	@JsonView
-	String cuenta4;
+    @Column(name = "CUENTA4", length = 20, nullable = true)
+    @JsonView
+    String cuenta4;
 
-	@Column(name = "DESCRIPCION1", length = 100, nullable = true)
-	@JsonView
-	String descripcion1;
+    @Column(name = "DESCRIPCION1", length = 100, nullable = true)
+    @JsonView
+    String descripcion1;
 
-	@Column(name = "SECOMPRA", nullable = true)
-	@JsonView
-	Integer secompra;
+    @Column(name = "SECOMPRA", nullable = true)
+    @JsonView
+    Integer secompra;
 
-	@Column(name = "CUENTA2", length = 20, nullable = true)
-	@JsonView
-	String cuenta2;
+    @Column(name = "CUENTA2", length = 20, nullable = true)
+    @JsonView
+    String cuenta2;
 
-	@Column(name = "TIPO", length = 20, nullable = false)
-	@JsonView
-	@Basic(fetch = FetchType.EAGER)
-	String tipo;
+    @Column(name = "TIPO", length = 20, nullable = false)
+    @JsonView
+    @Basic(fetch = FetchType.EAGER)
+    String tipo;
 
-	@Column(name = "CUENTA", length = 20, nullable = true)
-	@JsonView
-	String cuenta;
+    @Column(name = "CUENTA", length = 20, nullable = true)
+    @JsonView
+    String cuenta;
 
-	@Column(name = "PRECIO5", scale = 4, precision = 18, nullable = true)
-	@JsonView
-	BigDecimal precio5;
+    @Column(name = "PRECIO5", scale = 4, precision = 18, nullable = true)
+    @JsonView
+    BigDecimal precio5;
 
-	@Column(name = "CUENTA3", length = 20, nullable = true)
-	@JsonView
-	String cuenta3;
+    @Transient
+    @Column(name = "peso", scale = 4, precision = 18, nullable = true)
+    @JsonView
+    BigDecimal peso;
 
-	@Column(name = "USUARIO", length = 20, nullable = true)
-	@JsonView
-	String usuario;
+    @Column(name = "CUENTA3", length = 20, nullable = true)
+    @JsonView
+    String cuenta3;
 
-	@Column(name = "CUENTA5", length = 20, nullable = true)
-	@JsonView
-	String cuenta5;
+    @Column(name = "USUARIO", length = 20, nullable = true)
+    @JsonView
+    String usuario;
 
-	@Column(name = "SEPRODUCE", nullable = true)
-	@JsonView
-	Integer seproduce;
+    @Column(name = "CUENTA5", length = 20, nullable = true)
+    @JsonView
+    String cuenta5;
 
-	@Column(name = "MARGEN", scale = 4, precision = 18, nullable = true)
-	@JsonView
-	BigDecimal margen;
+    @Column(name = "SEPRODUCE", nullable = true)
+    @JsonView
+    Integer seproduce;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@DateTimeFormat(pattern = "dd/MM/yyyy hh:mm:ss")
-	@JsonFormat(pattern = "dd/MM/yyyy hh:mm:ss", timezone = "GMT-6")
-	@Column(name = "ULTIMOCAMBIO", nullable = true)
-	@JsonView
-	Date ultimocambio;
-	@DateTimeFormat(pattern = "dd/MM/yyyy hh:mm:ss")
-	@JsonFormat(pattern = "dd/MM/yyyy hh:mm:ss", timezone = "GMT-6")
+    @Column(name = "MARGEN", scale = 4, precision = 18, nullable = true)
+    @JsonView
+    BigDecimal margen;
 
-	@Column(name = "DESCRIPCION2", length = 255, nullable = true)
-	@JsonView
-	String descripcion2;
+    @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(pattern = "dd/MM/yyyy hh:mm:ss")
+    @JsonFormat(pattern = "dd/MM/yyyy hh:mm:ss", timezone = "GMT-6")
+    @Column(name = "ULTIMOCAMBIO", nullable = true)
+    @JsonView
+    Date ultimocambio;
+    @DateTimeFormat(pattern = "dd/MM/yyyy hh:mm:ss")
+    @JsonFormat(pattern = "dd/MM/yyyy hh:mm:ss", timezone = "GMT-6")
 
-	@Column(name = "PROVEEDOR", length = 10, nullable = true)
-	@JsonView
-	String proveedor;
+    @Column(name = "DESCRIPCION2", length = 255, nullable = true)
+    @JsonView
+    String descripcion2;
 
-	@Column(name = "PRECIO4", scale = 4, precision = 18, nullable = true)
-	@JsonView
-	BigDecimal precio4;
+    @Column(name = "PROVEEDOR", length = 10, nullable = true)
+    @JsonView
+    String proveedor;
 
-	@Column(name = "PRECIO3", scale = 4, precision = 18, nullable = true)
-	@JsonView
-	BigDecimal precio3;
+    @Column(name = "PRECIO4", scale = 4, precision = 18, nullable = true)
+    @JsonView
+    BigDecimal precio4;
 
-	@Column(name = "SEVENDE", nullable = true)
-	@JsonView
-	Integer sevende;
+    @Column(name = "PRECIO3", scale = 4, precision = 18, nullable = true)
+    @JsonView
+    BigDecimal precio3;
 
-	@Column(name = "ESFORMULA", nullable = true)
-	@JsonView
-	Integer esformula;
+    @Column(name = "SEVENDE", nullable = true)
+    @JsonView
+    Integer sevende;
 
-	@Column(name = "PRECIO2", scale = 4, precision = 18, nullable = true)
-	@JsonView
-	BigDecimal precio2;
+    @Column(name = "ESFORMULA", nullable = true)
+    @JsonView
+    Integer esformula;
 
-	@Column(name = "PRECIOLISTA", scale = 4, precision = 18, nullable = true)
-	@JsonView
-	BigDecimal preciolista;
+    @Column(name = "PRECIO2", scale = 4, precision = 18, nullable = true)
+    @JsonView
+    BigDecimal precio2;
 
-	@Column(name = "ESTATUS", length = 15, nullable = true)
-	@JsonView
-	String estatus;
+    @Column(name = "PRECIOLISTA", scale = 4, precision = 18, nullable = true)
+    @JsonView
+    BigDecimal preciolista;
 
-	@Column(name = "CUENTA6", length = 20, nullable = true)
-	@JsonView
-	String cuenta6;
+    @Column(name = "ESTATUS", length = 15, nullable = true)
+    @JsonView
+    String estatus;
 
-	@Column(name = "ESNOSUJETO", nullable = true)
-	@JsonView
-	Integer esnosujeto;
+    @Column(name = "CUENTA6", length = 20, nullable = true)
+    @JsonView
+    String cuenta6;
 
-	@Column(name = "IMPUESTO1", scale = 8, precision = 18, nullable = false)
-	@JsonView
-	BigDecimal impuesto1;
+    @Column(name = "ESNOSUJETO", nullable = true)
+    @JsonView
+    Integer esnosujeto;
 
-	@Column(name = "EXISTENCIAMINIMA", scale = 8, precision = 18, nullable = true)
-	@JsonView
-	BigDecimal existenciaminima;
+    @Column(name = "IMPUESTO1", scale = 8, precision = 18, nullable = false)
+    @JsonView
+    BigDecimal impuesto1;
 
-	@Column(name = "EXISTENCIAMAXIMA", scale = 8, precision = 18, nullable = true)
-	@JsonView
-	BigDecimal existenciamaxima;
+    @Column(name = "EXISTENCIAMINIMA", scale = 8, precision = 18, nullable = true)
+    @JsonView
+    BigDecimal existenciaminima;
 
-	@Column(name = "COSTPROM", scale = 8, precision = 18, nullable = true)
-	@JsonView
-	BigDecimal costprom;
+    @Column(name = "EXISTENCIAMAXIMA", scale = 8, precision = 18, nullable = true)
+    @JsonView
+    BigDecimal existenciamaxima;
 
-	@Column(name = "ULTIMOCOST", scale = 8, precision = 18, nullable = true)
-	@JsonView
-	BigDecimal ultimocost;
+    @Column(name = "COSTPROM", scale = 8, precision = 18, nullable = true)
+    @JsonView
+    BigDecimal costprom;
 
-	@Temporal(TemporalType.TIMESTAMP)
-	@DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss")
-	@JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss", timezone = "GMT-6")
-	@Column(name = "ALTA", nullable = true)
-	@JsonView
-	Date alta;
+    @Column(name = "ULTIMOCOST", scale = 8, precision = 18, nullable = true)
+    @JsonView
+    BigDecimal ultimocost;
 
-	@Column(name = "LOTEESTANDAR", nullable = true)
-	@JsonView
-	String loteestandar;
+    @Temporal(TemporalType.TIMESTAMP)
+    @DateTimeFormat(pattern = "dd/MM/yyyy HH:mm:ss")
+    @JsonFormat(pattern = "dd/MM/yyyy HH:mm:ss", timezone = "GMT-6")
+    @Column(name = "ALTA", nullable = true)
+    @JsonView
+    Date alta;
 
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JsonIgnore
-	@JoinColumn(name = "IDARTLINEA", referencedColumnName = "ID")
-	Artlinea artlinea;
+    @Column(name = "LOTEESTANDAR", nullable = true)
+    @JsonView
+    String loteestandar;
 
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JsonIgnore
-	@JoinColumn(name = "IDARTFAMILIA", referencedColumnName = "ID")
-	Artfamilia artfamilia;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnore
+    @JoinColumn(name = "IDARTLINEA", referencedColumnName = "ID")
+    Artlinea artlinea;
 
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JsonIgnore
-	@JoinColumn(name = "IDUNIDADCOMPRA", referencedColumnName = "ID")
-	Unidad unidadByidunidadcompra;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnore
+    @JoinColumn(name = "IDARTFAMILIA", referencedColumnName = "ID")
+    Artfamilia artfamilia;
 
-	@ManyToOne(fetch = FetchType.EAGER)
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnore
+    @JoinColumn(name = "IDUNIDADCOMPRA", referencedColumnName = "ID")
+    Unidad unidadByidunidadcompra;
 
-	@JsonIgnore
-	@JoinColumn(name = "IDARTCATEGORIA", referencedColumnName = "ID")
-	Artcategoria artcategoria;
+    @ManyToOne(fetch = FetchType.EAGER)
 
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JsonIgnore
-	@JoinColumn(name = "IDARTGRUPO", referencedColumnName = "ID")
-	Artgrupo artgrupo;
+    @JsonIgnore
+    @JoinColumn(name = "IDARTCATEGORIA", referencedColumnName = "ID")
+    Artcategoria artcategoria;
 
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JsonIgnore
-	@JoinColumn(name = "IDARTFABRICANTE", referencedColumnName = "ID")
-	Artfabricante artfabricante;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnore
+    @JoinColumn(name = "IDARTGRUPO", referencedColumnName = "ID")
+    Artgrupo artgrupo;
 
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JsonIgnore
-	@JoinColumn(name = "IDUNIDADTRASPASO", referencedColumnName = "ID")
-	Unidad unidadByidunidadtraspaso;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnore
+    @JoinColumn(name = "IDARTFABRICANTE", referencedColumnName = "ID")
+    Artfabricante artfabricante;
 
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JsonIgnore
-	@JsonView
-	@JoinColumns({ @JoinColumn(name = "IDUNIDAD", referencedColumnName = "ID") })
-	Unidad unidadByidunidad;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnore
+    @JoinColumn(name = "IDUNIDADTRASPASO", referencedColumnName = "ID")
+    Unidad unidadByidunidadtraspaso;
 
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JsonIgnore
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnore
+    @JsonView
+    @JoinColumns({
+        @JoinColumn(name = "IDUNIDAD", referencedColumnName = "ID")})
+    Unidad unidadByidunidad;
 
-	@JoinColumns({ @JoinColumn(name = "UNIDADCOMPRA", referencedColumnName = "ID") })
-	Unidad unidadcompra;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnore
 
-	@OneToMany(mappedBy = "art", cascade = { CascadeType.REMOVE }, fetch = FetchType.LAZY)
-	@JsonIgnore
-	List<Auxiliaru> auxiliarus;
+    @JoinColumns({
+        @JoinColumn(name = "UNIDADCOMPRA", referencedColumnName = "ID")})
+    Unidad unidadcompra;
 
-	@OneToOne(fetch = FetchType.EAGER)
-	@JoinColumns({
-			@JoinColumn(name = "ARTICULO", referencedColumnName = "ARTICULO", insertable = false, updatable = false),
-			@JoinColumn(name = "IDUNIDAD", referencedColumnName = "IDUNIDAD", insertable = false, updatable = false) })
-	Artunidad artunidad;
+    @OneToMany(mappedBy = "art", cascade = {CascadeType.REMOVE}, fetch = FetchType.LAZY)
+    @JsonIgnore
+    List<Auxiliaru> auxiliarus;
 
-	@OneToMany(mappedBy = "art", cascade = { CascadeType.REMOVE }, fetch = FetchType.LAZY)
-	@JsonIgnore
-	List<Artunidad> artunidadds;
+    @OneToOne(fetch = FetchType.EAGER)
+    @JoinColumns({
+        @JoinColumn(name = "ARTICULO", referencedColumnName = "ARTICULO", insertable = false, updatable = false),
+        @JoinColumn(name = "IDUNIDAD", referencedColumnName = "IDUNIDAD", insertable = false, updatable = false)})
+    Artunidad artunidad;
 
-	@OneToMany(mappedBy = "art", cascade = { CascadeType.REMOVE }, fetch = FetchType.LAZY)
-	@JsonIgnore
-	List<Ventad> ventads;
+    @OneToMany(mappedBy = "art", cascade = {CascadeType.REMOVE}, fetch = FetchType.LAZY)
+    @JsonIgnore
+    List<Artunidad> artunidadds;
 
-	@OneToMany(mappedBy = "art", cascade = { CascadeType.REMOVE }, fetch = FetchType.LAZY)
-	@JsonIgnore
-	List<Saldou> saldous;
+    @OneToMany(mappedBy = "art", cascade = {CascadeType.REMOVE}, fetch = FetchType.LAZY)
+    @JsonIgnore
+    List<Ventad> ventads;
 
-	@OneToMany(mappedBy = "art", orphanRemoval = true, cascade = { CascadeType.REMOVE }, fetch = FetchType.LAZY)
-	@JsonIgnore
-	List<Artalm> artalm;
+    @OneToMany(mappedBy = "art", cascade = {CascadeType.REMOVE}, fetch = FetchType.LAZY)
+    @JsonIgnore
+    List<Saldou> saldous;
 
-	@OneToMany(mappedBy = "art", cascade = { CascadeType.ALL }, orphanRemoval = true, fetch = FetchType.LAZY)
-	@JsonIgnore
-	List<Artjuego> artjuego;
+    @OneToMany(mappedBy = "art", orphanRemoval = true, cascade = {CascadeType.REMOVE}, fetch = FetchType.LAZY)
+    @JsonIgnore
+    List<Artalm> artalm;
+
+    @OneToMany(mappedBy = "art", cascade = {CascadeType.ALL}, orphanRemoval = true, fetch = FetchType.LAZY)
+    @JsonIgnore
+    List<Artjuego> artjuego;
 
 }

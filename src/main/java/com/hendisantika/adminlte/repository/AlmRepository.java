@@ -4,6 +4,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.hendisantika.adminlte.model.Alm;
 
-public interface AlmRepository extends JpaRepository<Alm, Integer>{
+
+public interface AlmRepository extends JpaRepository<Alm, String> {
 
 }
