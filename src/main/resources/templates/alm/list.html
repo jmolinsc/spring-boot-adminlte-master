@@ -1,64 +1,67 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
 
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="layout">
+    layout:decorate="layout">
 
-    <head>
-        <title>Almacen</title>
-    </head>
-    <body>
-        <section layout:fragment="header">
-            <h1>Almacenes</h1>
-            <ol class="breadcrumb">
-                <li><a href="/"><i class="fa fa-dashboard"></i>Dashboard</a></li>
-                <li class="active">Almacenes</li>
-            </ol>
-        </section>
+<head>
+    <title>Almacen</title>
+</head>
 
-        <div layout:fragment="content">
-            <div class="box">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Lists</h3>
-                    <div class="box-tools pull-right">
-                        <a href="/alm/add" type="button" class="btn btn-box-tool"><i class="fa fa-plus"></i></a>
-                        <br clear="all" />
-                    </div>
-                </div>
-               
-                <div class="box-body no-padding">
-                    <table class="table table-striped">
-                        <tr>
-                            <th>Almacen</th>
-                            <th>nombre</th>
-                            <th>estatus</th>
-                            <th>direccion</th>
-                            <th>Action</th>
-                        </tr>
-                        <tr th:each="row : ${list}">
-                            <td th:text="${row.almacen}"></td>
-                            <td th:text="${row.nombre}"></td>
-                            <td th:text="${row.estatus}"></td>
-                            <td th:text="${row.direccion}"></td>
-                           
-                            <td>     
-                                <a th:href="${'/alm/edit/' + row.almacen}">Edit</a> 
-                                <a th:href="${'/alm/delete/' + row.almacen}">Delete</a>
-                            </td>
-                        </tr>
-                    </table>
-                </div>
-                <div class="box-footer clearfix">
-                    <ul class="pagination pagination-sm no-margin pull-right">
-                        <li><a href="/alm/1">First</a></li>
-                        <li th:each="p : ${#numbers.sequence(1, endIndex/beginIndex)}" th:class="${p == currentIndex} ? 'active' : ''">
-                            <a th:href="${'/alm/' + p}" th:text="${p}"></a>
-                        </li>
-                        <li><a th:href="${'/alm/' + endIndex}">Last</a></li>
-                    </ul>
+<body>
+    <section layout:fragment="header">
+        <h1>Articulos</h1>
+        <ol class="breadcrumb">
+            <li><a href="/cuentas"><i class="fa fa-dashboard"></i> Cuentas</a></li>
+            <li class="active">Almacenes</li>
+        </ol>
+    </section>
+
+    <div layout:fragment="content">
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Lists</h3>
+                <div class="box-tools pull-right">
+                    <a href="/alm/add" type="button" class="btn btn-box-tool"><i class="fa fa-plus"></i></a>
+                    <br clear="all" />
                 </div>
             </div>
-           
+
+            <div class="box-body no-padding">
+                <table class="table table-striped">
+                    <tr>
+                        <th>Almacen</th>
+                        <th>nombre</th>
+                        <th>estatus</th>
+                        <th>direccion</th>
+                        <th>Action</th>
+                    </tr>
+                    <tr th:each="row : ${list}">
+                        <td th:text="${row.almacen}"></td>
+                        <td th:text="${row.nombre}"></td>
+                        <td th:text="${row.estatus}"></td>
+                        <td th:text="${row.direccion}"></td>
+
+                        <td>
+                            <a th:href="${'/alm/edit/' + row.almacen}">Edit</a>
+                            <a th:href="${'/alm/delete/' + row.almacen}">Delete</a>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+            <div class="box-footer clearfix">
+                <ul class="pagination pagination-sm no-margin pull-right">
+                    <li><a href="/alm/1">First</a></li>
+                    <li th:each="p : ${#numbers.sequence(1, endIndex/beginIndex)}"
+                        th:class="${p == currentIndex} ? 'active' : ''">
+                        <a th:href="${'/alm/' + p}" th:text="${p}"></a>
+                    </li>
+                    <li><a th:href="${'/alm/' + endIndex}">Last</a></li>
+                </ul>
+            </div>
         </div>
-        
-    </body>
+
+    </div>
+
+</body>
+
 </html>
