@@ -67,8 +67,8 @@ public class ArtController {
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable String id, Model model) {
 
-        model.addAttribute("venta", artRepository.findById(id));
-        return "alm/form";
+        model.addAttribute("art", artRepository.findById(id));
+        return "art/form";
 
     }
 

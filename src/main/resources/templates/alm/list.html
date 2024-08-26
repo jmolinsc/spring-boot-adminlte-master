@@ -4,62 +4,61 @@
       layout:decorate="layout">
 
     <head>
-        <title>Articulo</title>
+        <title>Almacen</title>
     </head>
     <body>
         <section layout:fragment="header">
-            <h1>Articulos</h1>
+            <h1>Almacenes</h1>
             <ol class="breadcrumb">
-                <li><a href="/cuentas"><i class="fa fa-dashboard"></i> Cuentas</a></li>
-                <li class="active">Articulos</li>
+                <li><a href="/"><i class="fa fa-dashboard"></i>Dashboard</a></li>
+                <li class="active">Almacenes</li>
             </ol>
         </section>
 
         <div layout:fragment="content">
             <div class="box">
                 <div class="box-header with-border">
-                    <h3 class="box-title">Listar</h3>
+                    <h3 class="box-title">Lists</h3>
                     <div class="box-tools pull-right">
-                        <a href="/art/add" type="button" class="btn btn-box-tool"><i class="fa fa-plus"></i></a>
+                        <a href="/alm/add" type="button" class="btn btn-box-tool"><i class="fa fa-plus"></i></a>
                         <br clear="all" />
                     </div>
                 </div>
-
+               
                 <div class="box-body no-padding">
                     <table class="table table-striped">
                         <tr>
-                            <th>Articulo</th>
-                            <th>Descripcion</th>
-                            <th>Tipo</th>
-                            <th>Proveedor</th>
-
+                            <th>Almacen</th>
+                            <th>nombre</th>
+                            <th>estatus</th>
+                            <th>direccion</th>
                             <th>Action</th>
                         </tr>
                         <tr th:each="row : ${list}">
-                            <td th:text="${row.articulo}"></td>
-                            <td th:text="${row.descripcion1}"></td>
-                            <td th:text="${row.tipo}"></td>
-                            <td th:text="${row.proveedor}"></td>
-
+                            <td th:text="${row.almacen}"></td>
+                            <td th:text="${row.nombre}"></td>
+                            <td th:text="${row.estatus}"></td>
+                            <td th:text="${row.direccion}"></td>
+                           
                             <td>     
-                                <a th:href="${'/art/edit/' + row.id}">Edit</a> 
-                                <a th:href="${'/art/delete/' + row.id}">Delete</a>
+                                <a th:href="${'/alm/edit/' + row.almacen}">Edit</a> 
+                                <a th:href="${'/alm/delete/' + row.almacen}">Delete</a>
                             </td>
                         </tr>
                     </table>
                 </div>
                 <div class="box-footer clearfix">
                     <ul class="pagination pagination-sm no-margin pull-right">
-                        <li><a href="/art/1">First</a></li>
+                        <li><a href="/alm/1">First</a></li>
                         <li th:each="p : ${#numbers.sequence(1, endIndex/beginIndex)}" th:class="${p == currentIndex} ? 'active' : ''">
-                            <a th:href="${'/art/' + p}" th:text="${p}"></a>
+                            <a th:href="${'/alm/' + p}" th:text="${p}"></a>
                         </li>
-                        <li><a th:href="${'/art/' + endIndex}">Last</a></li>
+                        <li><a th:href="${'/alm/' + endIndex}">Last</a></li>
                     </ul>
                 </div>
             </div>
-            
+           
         </div>
-
+        
     </body>
 </html>

@@ -29,7 +29,7 @@ public class WebSecurityConfig {
     @Bean
     public SecurityFilterChain configure(HttpSecurity http) throws Exception {
         http.authorizeHttpRequests((req) -> req
-                                .requestMatchers("/bower_components/**", "/dist/**", "/plugins/**").permitAll()
+                                .requestMatchers("/bower_components/**", "/dist/**", "/plugins/**", "/js/**").permitAll()
                 .anyRequest().authenticated()
                 )
                 .formLogin((formLogin) -> formLogin

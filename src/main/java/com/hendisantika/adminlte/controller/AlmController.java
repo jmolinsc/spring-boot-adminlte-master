@@ -29,7 +29,7 @@ public class AlmController {
 
     @GetMapping(value = "/{pageNumber}")
     public String list(@PathVariable Integer pageNumber, Model model) {
-        PageRequest pageRequest = PageRequest.of(pageNumber - 1, 5, Sort.Direction.ASC, "id");
+        PageRequest pageRequest = PageRequest.of(pageNumber - 1, 5, Sort.Direction.ASC, "almacen");
         Page<Alm> page = almRepository.findAll(pageRequest);
         int current = page.getNumber() + 1;
         int begin = Math.max(1, current - 5);
@@ -44,7 +44,7 @@ public class AlmController {
 
     @GetMapping("/add")
     public String add(Model model) {
-        model.addAttribute("venta", new Venta());
+        model.addAttribute("alm", new Alm());
         return "alm/form";
     }
 
@@ -58,7 +58,7 @@ public class AlmController {
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable String id, Model model) {
 
-        model.addAttribute("venta", almRepository.findById(id));
+        model.addAttribute("alm", almRepository.findById(id));
         return "alm/form";
 
     }

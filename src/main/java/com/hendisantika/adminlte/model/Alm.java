@@ -50,7 +50,6 @@ public class Alm implements Serializable {
 
 	@Column(name = "TELEFONOS", length = 100, nullable = true)
 	@JsonView
-
 	String telefonos;
 
 	@Temporal(TemporalType.TIMESTAMP)
@@ -60,21 +59,19 @@ public class Alm implements Serializable {
 	@JsonView
 	Date ultimocambio;
 
-	@Column(name = "TIPO", length = 20, nullable = false)
+	@Column(name = "TIPO", length = 20, nullable = true)
 	@JsonView
-
 	String tipo;
 
 	@Column(name = "DIRECCION", length = 100, nullable = true)
 	@JsonView
-
 	String direccion;
 
-	@Column(name = "ESTATUS", length = 15, nullable = false)
+	@Column(name = "ESTATUS", length = 15, nullable = true)
 	@JsonView
 	String estatus;
 
-	@Column(name = "NOMBRE", length = 100, nullable = false)
+	@Column(name = "NOMBRE", length = 100, nullable = true)
 	@JsonView
 	String nombre;
 
@@ -84,7 +81,6 @@ public class Alm implements Serializable {
 
 	@Column(name = "ALTA", nullable = true)
 	@JsonView
-
 	Date alta;
 
 	@ManyToOne(fetch = FetchType.EAGER)
