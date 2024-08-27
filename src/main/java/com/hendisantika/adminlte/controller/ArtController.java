@@ -4,9 +4,7 @@
  */
 package com.hendisantika.adminlte.controller;
 
-import com.hendisantika.adminlte.model.Alm;
 import com.hendisantika.adminlte.model.Art;
-import com.hendisantika.adminlte.model.Venta;
 import com.hendisantika.adminlte.repository.ArtRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -59,7 +57,7 @@ public class ArtController {
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Integer id) {
-        //almRepository.delete(id);
+        // almRepository.delete(id);
         return "redirect:/art";
 
     }

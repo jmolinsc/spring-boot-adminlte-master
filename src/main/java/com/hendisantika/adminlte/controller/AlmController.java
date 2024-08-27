@@ -1,8 +1,12 @@
 package com.hendisantika.adminlte.controller;
 
 import com.hendisantika.adminlte.model.Alm;
-import com.hendisantika.adminlte.model.Venta;
+import com.hendisantika.adminlte.model.Art;
 import com.hendisantika.adminlte.repository.AlmRepository;
+import com.hendisantika.adminlte.service.AlmService;
+
+import java.net.http.HttpRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -22,6 +26,9 @@ public class AlmController {
     @Autowired
     AlmRepository almRepository;
 
+    @Autowired
+    AlmService almService;
+
     @GetMapping
     public String index() {
         return "redirect:/alm/1";
@@ -29,6 +36,7 @@ public class AlmController {
 
     @GetMapping(value = "/{pageNumber}")
     public String list(@PathVariable Integer pageNumber, Model model) {
+
         PageRequest pageRequest = PageRequest.of(pageNumber - 1, 5, Sort.Direction.ASC, "almacen");
         Page<Alm> page = almRepository.findAll(pageRequest);
         int current = page.getNumber() + 1;
@@ -40,6 +48,7 @@ public class AlmController {
         model.addAttribute("endIndex", end);
         model.addAttribute("currentIndex", current);
         return "alm/list";
+
     }
 
     @GetMapping("/add")
@@ -50,8 +59,8 @@ public class AlmController {
 
     @GetMapping("/delete/{id}")
     public String delete(@PathVariable Integer id) {
-        //almRepository.delete(id);
-        return "redirect:/venta";
+        // almRepository.delete(id);
+        return "redirect:/alm";
 
     }
 
