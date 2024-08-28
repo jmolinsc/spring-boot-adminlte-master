@@ -1,5 +1,6 @@
 package com.hendisantika.adminlte.controller;
 
+import com.hendisantika.adminlte.datatable.PagingRequest;
 import com.hendisantika.adminlte.model.Alm;
 import com.hendisantika.adminlte.model.Art;
 import com.hendisantika.adminlte.repository.AlmRepository;
@@ -16,7 +17,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 @Controller
@@ -79,6 +82,14 @@ public class AlmController {
         ra.addFlashAttribute("successFlash", "Almacen creado exitosamente");
         return "redirect:/alm";
 
+    }
+
+    @PostMapping("/data")
+    @ResponseBody
+    public com.hendisantika.adminlte.datatable.Page<Alm> getPaginatedDatatable(
+            @RequestBody PagingRequest pagingRequest) {
+
+        return almService.getPaginatedDatatable(pagingRequest);
     }
 
 }

@@ -20,14 +20,14 @@ import org.springframework.web.bind.annotation.RestController;
  */
 
  @Controller
-@RequestMapping("/dt")
+
 public class PersonController {
 
     @Autowired
     private AlmService almService;
 
     
-    @PostMapping("/alm")
+    @PostMapping("/dt")
     @ResponseBody
     public Page<Alm> getPaginatedDatatable(@RequestBody PagingRequest pagingRequest) {
 
