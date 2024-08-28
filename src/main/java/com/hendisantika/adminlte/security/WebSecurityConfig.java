@@ -42,7 +42,7 @@ public class WebSecurityConfig {
                 .logoutRequestMatcher(new AntPathRequestMatcher("/logout"))
                 .logoutSuccessUrl("/login")
                         .permitAll())
-                         .csrf(AbstractHttpConfigurer::disable);;
+                         .csrf(AbstractHttpConfigurer::disable);
         return http.build();
     }
 
