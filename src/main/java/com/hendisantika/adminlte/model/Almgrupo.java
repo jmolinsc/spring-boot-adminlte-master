@@ -23,7 +23,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-
 @Entity
 @Data
 @Getter
@@ -37,18 +36,15 @@ public class Almgrupo implements Serializable {
     @Id
     @Column(name = "ID", nullable = false)
     @JsonView
-    @GeneratedValue(strategy =GenerationType.IDENTITY)
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     Integer id;
 
-
-    @Column(name = "NOMBRE",length =50, nullable = false)
+    @Column(name = "NOMBRE", length = 50, nullable = false)
     @JsonView
     String nombre;
 
-
-    @OneToMany(mappedBy = "almgrupo", cascade = {CascadeType.REMOVE}, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "almgrupo", cascade = { CascadeType.REMOVE }, fetch = FetchType.LAZY)
     @JsonIgnore
     List<Alm> alms;
 
 }
-

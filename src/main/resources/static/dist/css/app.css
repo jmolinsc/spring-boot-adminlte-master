@@ -1,0 +1,14 @@
+td.editor-edit button,
+td.editor-delete button {
+    background: transparent;
+    border: none;
+    color: inherit;
+}
+
+tr {
+    height: 5px
+}
+
+table.dataTable td {
+    font-size: 1em;
+}
