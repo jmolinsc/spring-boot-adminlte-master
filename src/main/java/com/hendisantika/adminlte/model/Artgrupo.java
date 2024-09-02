@@ -23,7 +23,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-
 @Entity
 @Data
 @Getter
@@ -35,7 +34,6 @@ public class Artgrupo implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-
 	@Column(name = "ID", nullable = false)
 	@JsonView
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

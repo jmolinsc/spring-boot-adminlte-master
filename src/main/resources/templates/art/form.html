@@ -59,13 +59,13 @@
                                             </div>
                                             <div class="form-group col-sm-3">
                                                 <label for="tipo">Tipo</label>
-                                                <input type="text" required="true" class="form-control" th:field="*{tipo}"
+                                                <input type="text" class="form-control" th:field="*{tipo}"
                                                        id="tipo" />
                                             </div>
                                             <div class="form-group col-sm-3">
                                                 <label for="estatus">Estatus</label>
-                                                <input type="text" required="true" class="form-control" th:field="*{estatus}"
-                                                       id="fechaemision" />
+                                                <input type="text"  class="form-control" th:field="*{estatus}"
+                                                       id="estatus" />
                                             </div>
 
 
@@ -73,11 +73,11 @@
                                         <di class="row">
                                             <div class="form-group col-sm-6">
                                                 <label for="Lastname">Descripcion 1</label>
-                                                <input type="text" required="true" class="form-control" th:field="*{descripcion1}" id="descripcion1" />
+                                                <input type="text"  class="form-control" th:field="*{descripcion1}" id="descripcion1" />
                                             </div>
                                             <div class="form-group col-sm-6">
                                                 <label for="descripcion2">Descripcion 2</label>
-                                                <input type="text" required="true" class="form-control" th:field="*{descripcion2}"
+                                                <input type="text"  class="form-control" th:field="*{descripcion2}"
                                                        id="peso" />
                                             </div>
 
@@ -85,24 +85,24 @@
 
                                         <di class="row">
                                             <div class="form-group col-sm-2">
-                                                <label for="Lastname">Unidad Venta</label>
-                                                <input type="text" required="true" class="form-control" th:field="*{descripcion1}" id="descripcion1" />
+                                                <label for="Lastname">Unidad</label>
+                                                <input type="text" class="form-control" th:field="*{unidadByidunidad.id}" id="unidadByidunidad" />
                                             </div>
                                             <div class="form-group col-sm-2">
                                                 <label for="email">Unidad Traspaso</label>
-                                                <input type="text" required="true" class="form-control" th:field="*{peso}"
+                                                <input type="text"  class="form-control" th:field="*{unidadByidunidadtraspaso.id}"
                                                        id="peso" />
                                             </div>
 
                                             <div class="form-group col-sm-2">
                                                 <label for="email">Unidad Compra</label>
-                                                <input type="text" required="true" class="form-control" th:field="*{peso}"
+                                                <input type="text"  class="form-control" th:field="*{unidadByidunidadcompra.id}"
                                                        id="peso" />
                                             </div>
 
                                             <div class="form-group col-sm-2">
                                                 <label for="email">Peso</label>
-                                                <input type="text" required="true" class="form-control" th:field="*{peso}"
+                                                <input type="text"  class="form-control" th:field="*{peso}"
                                                        id="peso" />
                                             </div>
 
@@ -110,60 +110,59 @@
                                         <di class="row">
                                             <div class="form-group col-sm-2">
                                                 <label for="Lastname">Categoria</label>
-                                                <input type="text" required="true" class="form-control" th:field="*{descripcion1}" id="descripcion1" />
+                                                <input type="text"  class="form-control" th:field="*{artcategoria.id}" id="artcategoria" />
                                             </div>
                                             <div class="form-group col-sm-2">
                                                 <label for="email">Grupo</label>
-                                                <input type="text" required="true" class="form-control" th:field="*{peso}"
-                                                       id="peso" />
+                                                <input type="text" class="form-control"  th:field="*{artgrupo.id}" id="artgrupo" />
                                             </div>
                                             <div class="form-group col-sm-2">
                                                 <label for="email">Familia</label>
-                                                <input type="text" required="true" class="form-control" th:field="*{peso}"
-                                                       id="peso" />
+                                                <input type="text"  class="form-control" th:field="*{artfamilia.id}" id="artfamilia" />
                                             </div>
                                             <div class="form-group col-sm-2">
                                                 <label for="email">Linea</label>
-                                                <input type="text" required="true" class="form-control" th:field="*{peso}"
-                                                       id="peso" />
+                                                <input type="text"  class="form-control" th:field="*{artlinea.id}" id="artlinea" />
                                             </div>
                                         </di>
                                         <di class="row">
                                             <div class="form-group col-sm-2">
                                                 <label for="Lastname">Fabricante</label>
-                                                <input type="text" required="true" class="form-control" th:field="*{descripcion1}" id="descripcion1" />
+                                                <select  id="artfabricante" class="form-control" th:field="*{artfabricante.id}">
+                                                <option
+                                                    th:each="item : ${fabricantes}"
+                                                    th:value="${item.id}"
+                                                    th:text="${item.nombre}"
+                                                ></option>
+                                                </select>
+
                                             </div>
                                             <div class="form-group col-sm-2">
                                                 <label for="email">Codigo Fabricante</label>
-                                                <input type="text" required="true" class="form-control" th:field="*{peso}"
-                                                       id="peso" />
+                                                <input type="text"  class="form-control" th:field="*{artfabricante.id}" id="artfabricante" />
                                             </div>
-                                            <div class="form-group col-sm-2">
-                                                <label for="email">Categoria Activo Fijo</label>
-                                                <input type="text" required="true" class="form-control" th:field="*{peso}"
-                                                       id="peso" />
-                                            </div>
+                                       
                                             <div class="form-group col-sm-2">
                                                 <label for="Lastname">IVA</label>
-                                                <input type="text" required="true" class="form-control" th:field="*{descripcion1}" id="descripcion1" />
+                                                <input type="text"  class="form-control" th:field="*{impuesto1}" id="impuesto1" />
                                             </div>
                                         </di>
                                         <di class="row">
 
                                             <div class="form-group col-sm-2">
                                                 <label for="email">Instrucciones</label>
-                                                <input type="text" required="true" class="form-control" th:field="*{peso}"
-                                                       id="peso" />
+                                                <input type="text" class="form-control" th:field="*{instrucciones}"
+                                                       id="instrucciones" />
                                             </div>
                                             <div class="form-group col-sm-2">
                                                 <label for="email">Registro</label>
-                                                <input type="text" required="true" class="form-control" th:field="*{peso}"
-                                                       id="peso" />
+                                                <input type="text" class="form-control" th:field="*{registrosv}"
+                                                       id="registrosv" />
                                             </div>
                                             <div class="form-group col-sm-2">
                                                 <label for="email">Otros Datos</label>
-                                                <input type="text" required="true" class="form-control" th:field="*{peso}"
-                                                       id="peso" />
+                                                <input type="text"  class="form-control" th:field="*{otrosdatos}"
+                                                       id="peotrosdatosso" />
                                             </div>
 
                                         </di>
@@ -174,23 +173,23 @@
 
                                             <div class="form-group col-sm-2">
                                                 <label for="email">Precio Lista</label>
-                                                <input type="text" required="true" class="form-control" th:field="*{peso}"
+                                                <input type="text"  class="form-control" th:field="*{preciolista}"
                                                        id="peso" />
                                             </div>
                                             <div class="form-group col-sm-2">
                                                 <label for="email">Precio 2</label>
-                                                <input type="text" required="true" class="form-control" th:field="*{peso}"
+                                                <input type="text" class="form-control" th:field="*{precio2}"
                                                        id="peso" />
                                             </div>
                                             <div class="form-group col-sm-2">
                                                 <label for="email">Precio 3</label>
-                                                <input type="text" required="true" class="form-control" th:field="*{peso}"
+                                                <input type="text"  class="form-control" th:field="*{precio3}"
                                                        id="peso" />
                                             </div>
 
                                             <div class="form-group col-sm-2">
                                                 <label for="email">Precio 4</label>
-                                                <input type="text" required="true" class="form-control" th:field="*{peso}"
+                                                <input type="text"  class="form-control" th:field="*{precio4}"
                                                        id="peso" />
                                             </div>
 
@@ -202,24 +201,24 @@
 
                                             <div class="form-group col-sm-2">
                                                 <label for="email">Se vende</label>
-                                                <input type="text" required="true" class="form-control" th:field="*{peso}"
+                                                <input type="text" class="form-control" th:field="*{sevende}"
                                                        id="peso" />
                                             </div>
                                             <div class="form-group col-sm-2">
                                                 <label for="email">Se Compra</label>
-                                                <input type="text" required="true" class="form-control" th:field="*{peso}"
+                                                <input type="text" class="form-control" th:field="*{secompra}"
                                                        id="peso" />
                                             </div>
                                             <div class="form-group col-sm-2">
                                                 <label for="email">Se produce</label>
-                                                <input type="text" required="true" class="form-control" th:field="*{peso}"
+                                                <input type="text"  class="form-control" th:field="*{seproduce}"
                                                        id="peso" />
                                             </div>
 
                                             <div class="form-group col-sm-2">
                                                 <label for="email">Proveedor</label>
-                                                <input type="text" required="true" class="form-control" th:field="*{peso}"
-                                                       id="peso" />
+                                                <input type="text"  class="form-control" th:field="*{proveedor}"
+                                                       id="proveedor" />
                                             </div>
 
                                         </di>
@@ -230,18 +229,18 @@
 
                                             <div class="form-group col-sm-2">
                                                 <label for="email">Cuenta Inventario</label>
-                                                <input type="text" required="true" class="form-control" th:field="*{peso}"
+                                                <input type="text"  class="form-control" th:field="*{cuenta}"
                                                        id="peso" />
                                             </div>
                                             <div class="form-group col-sm-2">
                                                 <label for="email">Cuenta Ingresos</label>
-                                                <input type="text" required="true" class="form-control" th:field="*{peso}"
-                                                       id="peso" />
+                                                <input type="text"  class="form-control" th:field="*{cuenta2}"
+                                                       id="cuenta2" />
                                             </div>
                                             <div class="form-group col-sm-2">
                                                 <label for="email">Cuenta Costo VTA</label>
-                                                <input type="text" required="true" class="form-control" th:field="*{peso}"
-                                                       id="peso" />
+                                                <input type="text" class="form-control" th:field="*{cuenta3}"
+                                                       id="pecuenta3so" />
                                             </div>
 
                                           

@@ -3,8 +3,10 @@ package com.hendisantika.adminlte.service;
 import com.hendisantika.adminlte.datatable.Page;
 import com.hendisantika.adminlte.datatable.PagingRequest;
 import com.hendisantika.adminlte.model.Alm;
+import com.hendisantika.adminlte.model.Art;
 
-public interface AlmService {
+public interface ArtService {
 
-    Page<Alm> getPaginatedDatatable(PagingRequest pagingRequest);
+    Page<Art> getPaginatedDatatable(PagingRequest pagingRequest);
+
 }

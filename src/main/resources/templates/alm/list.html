@@ -1,54 +1,53 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
 
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-  layout:decorate="layout">
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="layout"
+>
+  <head>
+    <title>Almacen</title>
+  </head>
 
-<head>
-  <title>Almacen</title>
-</head>
+  <body>
+    <section layout:fragment="header">
+      <h1>Articulos</h1>
+      <ol class="breadcrumb">
+        <li>
+          <a href="/cuentas"><i class="fa fa-dashboard"></i> Cuentas</a>
+        </li>
+        <li class="active">Almacenes</li>
+      </ol>
+    </section>
 
-<body>
-  <section layout:fragment="header">
-    <h1>Articulos</h1>
-    <ol class="breadcrumb">
-      <li>
-        <a href="/cuentas"><i class="fa fa-dashboard"></i> Cuentas</a>
-      </li>
-      <li class="active">Almacenes</li>
-    </ol>
-  </section>
+    <div layout:fragment="content">
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Lists</h3>
+          <div class="box-tools pull-right">
+            <a href="/alm/add" type="button" class="btn btn-box-tool"
+              ><i class="fa fa-plus"></i
+            ></a>
+            <br clear="all" />
+          </div>
+        </div>
 
-  <div layout:fragment="content">
-    <div class="box">
-      <div class="box-header with-border">
-        <h3 class="box-title">Lists</h3>
-        <div class="box-tools pull-right">
-          <a href="/alm/add" type="button" class="btn btn-box-tool"><i class="fa fa-plus"></i></a>
-          <br clear="all" />
+        <div class="box-body no-padding">
+          <table id="example" class="table table-bordered">
+            <thead>
+              <tr>
+                <th>Almacen</th>
+                <th>Nombre</th>
+                <th>Telefonos</th>
+              </tr>
+            </thead>
+          </table>
         </div>
       </div>
-
-      <div class="box-body no-padding">
-        <table id="example" class="table table-bordered">
-          <thead>
-            <tr>
-              <th>Almacen</th>
-              <th>Nombre</th>
-              <th>Telefonos</th>
-            </tr>
-          </thead>
-        </table>
-      </div>
-
     </div>
 
-  </div>
-
-  <th:block layout:fragment="script">
-    <script th:src="@{/page.js}"></script>
-    <script th:src="@{/dist/js/vta/vta.js}"></script>
-
-  </th:block>
-</body>
-
+    <th:block layout:fragment="script">
+      <script th:src="@{/dist/js/alm/alm.js}"></script>
+    </th:block>
+  </body>
 </html>

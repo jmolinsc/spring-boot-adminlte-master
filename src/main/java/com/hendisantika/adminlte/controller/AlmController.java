@@ -1,12 +1,18 @@
 package com.hendisantika.adminlte.controller;
 
+import com.hendisantika.adminlte.commons.SelectOption;
+import com.hendisantika.adminlte.commons.Utils;
 import com.hendisantika.adminlte.datatable.PagingRequest;
 import com.hendisantika.adminlte.model.Alm;
+import com.hendisantika.adminlte.model.Almgrupo;
 import com.hendisantika.adminlte.model.Art;
 import com.hendisantika.adminlte.repository.AlmRepository;
+import com.hendisantika.adminlte.repository.AlmgrupoRepository;
 import com.hendisantika.adminlte.service.AlmService;
 
 import java.net.http.HttpRequest;
+import java.util.ArrayList;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -30,6 +36,9 @@ public class AlmController {
     AlmRepository almRepository;
 
     @Autowired
+    AlmgrupoRepository almgrupoRepository;
+
+    @Autowired
     AlmService almService;
 
     @GetMapping
@@ -50,6 +59,7 @@ public class AlmController {
         model.addAttribute("beginIndex", begin);
         model.addAttribute("endIndex", end);
         model.addAttribute("currentIndex", current);
+
         return "alm/list";
 
     }
@@ -57,6 +67,7 @@ public class AlmController {
     @GetMapping("/add")
     public String add(Model model) {
         model.addAttribute("alm", new Alm());
+        model.addAttribute("almgrupo", almgrupoRepository.findAll());
         return "alm/form";
     }
 
@@ -71,6 +82,9 @@ public class AlmController {
     public String edit(@PathVariable String id, Model model) {
 
         model.addAttribute("alm", almRepository.findById(id));
+        model.addAttribute("almgrupo", almgrupoRepository.findAll());
+        List<SelectOption> A = Utils.cboEstatusAlm();
+        model.addAttribute("listestatus", Utils.cboEstatusAlm());
         return "alm/form";
 
     }
@@ -87,7 +101,7 @@ public class AlmController {
     @PostMapping("/data")
     @ResponseBody
     public com.hendisantika.adminlte.datatable.Page<Alm> getPaginatedDatatable(
-            @RequestBody PagingRequest pagingRequest) {
+            @RequestBody PagingRequest pagingRequest, Model model) {
 
         return almService.getPaginatedDatatable(pagingRequest);
     }

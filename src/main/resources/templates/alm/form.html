@@ -1,94 +1,147 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-    layout:decorate="layout">
-
-<head>
-
+<html
+  xmlns:th="http://www.thymeleaf.org"
+  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+  layout:decorate="layout"
+>
+  <head>
     <title>Almacen</title>
-</head>
+  </head>
 
-<body>
+  <body>
     <section layout:fragment="header">
-        <h1>Venta</h1>
-        <ol class="breadcrumb">
-            <li><a href="/"><i class="fa fa-dashboard"></i> Dashboard</a></li>
-            <li><a href="/alm"><i class="fa fa-dashboard"></i>Almacenes</a></li>
-            <li class="active">Venta</li>
-        </ol>
+      <h1>Venta</h1>
+      <ol class="breadcrumb">
+        <li>
+          <a href="/"><i class="fa fa-dashboard"></i> Dashboard</a>
+        </li>
+        <li>
+          <a href="/alm"><i class="fa fa-dashboard"></i>Almacenes</a>
+        </li>
+        <li class="active">Venta</li>
+      </ol>
     </section>
     <div layout:fragment="content">
-        <div class="box">
-            <div class="box-header with-border">
-                <h3 class="box-title">Datos</h3>
-                <div class="box-tools pull-right">
-                    <a href="/alm" type="button" class="btn btn-box-tool"><i class="fa fa-list-ul"></i></a>
-                </div>
-            </div>
-            <form data-toggle="validator" role="form" th:object="${alm}" th:action="@{/alm/save}" method="post">
-                <div class="box-body">
-                    <div class="row">
-                        <div class="form-group col-sm-2">
-                            <label for="Firstname">Almacen</label>
-                            <input type="text" required="true" class="form-control" th:field="*{almacen}"
-                                id="almacen" />
-                        </div>
-                        <div class="form-group col-sm-4">
-                            <label for="Lastname">Nombre</label>
-                            <input type="text" required="true" class="form-control" th:field="*{nombre}" id="nombre" />
-                        </div>
-                        <div class="form-group col-sm-2">
-                            <label for="email">Estatus</label>
-                            <input type="text" required="true" class="form-control" th:field="*{estatus}"
-                                id="estatus" />
-                        </div>
-                        <div class="form-group col-sm-2">
-                            <label for="Alta">Alta</label>
-                            <input type="text" class="form-control" th:field="*{alta}" id="alta" />
-                        </div>
-                        <div class="form-group col-sm-2">
-                            <label for="Firstname">Tipo</label>
-                            <input type="text" required="true" class="form-control" th:field="*{tipo}" id="tipo" />
-                        </div>
-
-                    </div>
-                    <div class="row">
-
-                        <div class="form-group col-sm-6">
-                            <label for="email">Direccion</label>
-                            <input type="text" class="form-control" th:field="*{direccion}" id="direccion" />
-                        </div>
-
-                        <div class="form-group col-sm-2">
-                            <label for="email">Grupo</label>
-                            <select id="almgrupo" class="form-control" th:field="*{almgrupo.id}">
-                                <option value="1">USER</option>
-                                <option value="2">ADMIN</option>
-                                <option value="3">SUPERUSER</option>
-                            </select>
-                        </div>
-                       
-                        <div class="form-group col-sm-2">
-                            <label for="email">Telefono</label>
-                            <input type="text" required="true" class="form-control" th:field="*{telefonos}"
-                                id="estatus" />
-                        </div>
-                        <div class="form-group col-sm-2">
-                            <label for="email">Cuenta</label>
-                            <input type="text" class="form-control" th:field="*{cta.cuenta}" id="cuenta" />
-                        </div>
-                    </div>
-
-
-                </div>
-                <div class="box-footer">
-                    <button class="btn btn-primary" type="submit">Guardar</button>
-                </div>
-
-            </form>
+      <div class="box">
+        <div class="box-header with-border">
+          <h3 class="box-title">Datos</h3>
+          <div class="box-tools pull-right">
+            <a href="/alm" type="button" class="btn btn-box-tool"
+              ><i class="fa fa-list-ul"></i
+            ></a>
+          </div>
         </div>
+        <form
+          data-toggle="validator"
+          role="form"
+          th:object="${alm}"
+          th:action="@{/alm/save}"
+          method="post"
+        >
+          <div class="box-body">
+            <div class="row">
+              <div class="form-group col-sm-2">
+                <label for="Firstname">Almacen</label>
+                <input
+                  type="text"
+                  required="true"
+                  class="form-control"
+                  th:field="*{almacen}"
+                  id="almacen"
+                />
+              </div>
+              <div class="form-group col-sm-4">
+                <label for="Lastname">Nombre</label>
+                <input
+                  type="text"
+                  required="true"
+                  class="form-control"
+                  th:field="*{nombre}"
+                  id="nombre"
+                />
+              </div>
+              <div class="form-group col-sm-2">
+                <label for="email">Estatus</label>
+                <select id="estatus" class="form-control" th:field="*{estatus}">
+                  <option
+                    th:each="es : ${listestatus}"
+                    th:value="${es.id}"
+                    th:text="${es.value}"
+                  ></option>
+                </select>
+              </div>
+              <div class="form-group col-sm-2">
+                <label for="Alta">Alta</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  th:field="*{alta}"
+                  id="alta"
+                />
+              </div>
+              <div class="form-group col-sm-2">
+                <label for="Firstname">Tipo</label>
+                <input
+                  type="text"
+                  required="true"
+                  class="form-control"
+                  th:field="*{tipo}"
+                  id="tipo"
+                />
+              </div>
+            </div>
+            <div class="row">
+              <div class="form-group col-sm-6">
+                <label for="email">Direccion</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  th:field="*{direccion}"
+                  id="direccion"
+                />
+              </div>
+
+              <div class="form-group col-sm-2">
+                <label for="email">Grupo</label>
+                <select
+                  id="almgrupo"
+                  class="form-control"
+                  th:field="*{almgrupo.id}"
+                >
+                  <option
+                    th:each="item : ${almgrupo}"
+                    th:value="${item.id}"
+                    th:text="${item.nombre}"
+                  ></option>
+                </select>
+              </div>
+
+              <div class="form-group col-sm-2">
+                <label for="email">Telefono</label>
+                <input
+                  type="text"
+                  required="true"
+                  class="form-control"
+                  th:field="*{telefonos}"
+                  id="estatus"
+                />
+              </div>
+              <div class="form-group col-sm-2">
+                <label for="email">Cuenta</label>
+                <input
+                  type="text"
+                  class="form-control"
+                  th:field="*{cta.cuenta}"
+                  id="cuenta"
+                />
+              </div>
+            </div>
+          </div>
+          <div class="box-footer">
+            <button class="btn btn-primary" type="submit">Guardar</button>
+          </div>
+        </form>
+      </div>
     </div>
-
-
-</body>
-
+  </body>
 </html>

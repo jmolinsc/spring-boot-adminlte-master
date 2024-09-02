@@ -188,6 +188,19 @@ public class Art implements Serializable {
     @JsonView
     String loteestandar;
 
+    @Column(name = "INSTRUCCIONES", length = 200, nullable = true)
+    @JsonView
+    String instrucciones;
+    
+    @Column(name = "OTROSDATOS", length = 200, nullable = true)
+    @JsonView
+    String otrosdatos;
+
+
+    @Column(name = "REGISTROSV", length = 50, nullable = true)
+    @JsonView
+    String registrosv;
+
     @ManyToOne(fetch = FetchType.EAGER)
     @JsonIgnore
     @JoinColumn(name = "IDARTLINEA", referencedColumnName = "ID")

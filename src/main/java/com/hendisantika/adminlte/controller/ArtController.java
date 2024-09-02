@@ -4,8 +4,13 @@
  */
 package com.hendisantika.adminlte.controller;
 
+import com.hendisantika.adminlte.datatable.PagingRequest;
+import com.hendisantika.adminlte.model.Alm;
 import com.hendisantika.adminlte.model.Art;
 import com.hendisantika.adminlte.repository.ArtRepository;
+import com.hendisantika.adminlte.service.ArtService;
+import com.hendisantika.adminlte.service.ArtfabricanteService;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -15,7 +20,9 @@ import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 /**
@@ -28,6 +35,12 @@ public class ArtController {
 
     @Autowired
     ArtRepository artRepository;
+
+    @Autowired
+    ArtService artService;
+
+    @Autowired
+    ArtfabricanteService artfabricanteService;
 
     @GetMapping
     public String index() {
@@ -51,6 +64,7 @@ public class ArtController {
 
     @GetMapping("/add")
     public String add(Model model) {
+        model.addAttribute("fabricantes", artfabricanteService.findAll());
         model.addAttribute("art", new Art());
         return "art/form";
     }
@@ -78,4 +92,13 @@ public class ArtController {
         return "redirect:/art";
 
     }
+
+    @PostMapping("/data")
+    @ResponseBody
+    public com.hendisantika.adminlte.datatable.Page<Art> getPaginatedDatatable(
+            @RequestBody PagingRequest pagingRequest, Model model) {
+
+        return artService.getPaginatedDatatable(pagingRequest);
+    }
+
 }
