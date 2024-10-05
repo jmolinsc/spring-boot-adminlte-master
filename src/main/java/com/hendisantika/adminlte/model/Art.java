@@ -157,7 +157,7 @@ public class Art implements Serializable {
     @JsonView
     Integer esnosujeto;
 
-    @Column(name = "IMPUESTO1", scale = 8, precision = 18, nullable = false)
+    @Column(name = "IMPUESTO1", scale = 8, precision = 18, nullable = true)
     @JsonView
     BigDecimal impuesto1;
 
@@ -191,11 +191,10 @@ public class Art implements Serializable {
     @Column(name = "INSTRUCCIONES", length = 200, nullable = true)
     @JsonView
     String instrucciones;
-    
+
     @Column(name = "OTROSDATOS", length = 200, nullable = true)
     @JsonView
     String otrosdatos;
-
 
     @Column(name = "REGISTROSV", length = 50, nullable = true)
     @JsonView
@@ -218,8 +217,8 @@ public class Art implements Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER)
 
-    @JsonIgnore
     @JoinColumn(name = "IDARTCATEGORIA", referencedColumnName = "ID")
+    @JsonIgnore
     Artcategoria artcategoria;
 
     @ManyToOne(fetch = FetchType.EAGER)
