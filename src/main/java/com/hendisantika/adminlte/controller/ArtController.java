@@ -8,6 +8,7 @@ import com.hendisantika.adminlte.datatable.PagingRequest;
 import com.hendisantika.adminlte.model.Alm;
 import com.hendisantika.adminlte.model.Art;
 import com.hendisantika.adminlte.repository.ArtRepository;
+import com.hendisantika.adminlte.repository.ArtfamiliaRepository;
 import com.hendisantika.adminlte.service.ArtService;
 import com.hendisantika.adminlte.service.ArtfabricanteService;
 
@@ -40,6 +41,9 @@ public class ArtController {
     ArtService artService;
 
     @Autowired
+    ArtfamiliaRepository artfamiliaRepository;
+
+    @Autowired
     ArtfabricanteService artfabricanteService;
 
     @GetMapping
@@ -64,6 +68,7 @@ public class ArtController {
 
     @GetMapping("/add")
     public String add(Model model) {
+        model.addAttribute("familias", artfamiliaRepository.findAll());
         model.addAttribute("fabricantes", artfabricanteService.findAll());
         model.addAttribute("art", new Art());
         return "art/form";
