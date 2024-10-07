@@ -6,4 +6,6 @@ import com.hendisantika.adminlte.model.Artcategoria;
 
 public interface ArtcategoriaRepository extends JpaRepository<Artcategoria,Integer> {
 
+
+    
 }

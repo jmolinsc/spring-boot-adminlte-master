@@ -9,6 +9,7 @@ import com.hendisantika.adminlte.model.Art;
 import com.hendisantika.adminlte.repository.AlmRepository;
 import com.hendisantika.adminlte.repository.AlmgrupoRepository;
 import com.hendisantika.adminlte.service.AlmService;
+import com.hendisantika.adminlte.service.AlmgrupoService;
 
 import java.net.http.HttpRequest;
 import java.util.ArrayList;
@@ -36,7 +37,7 @@ public class AlmController {
     AlmRepository almRepository;
 
     @Autowired
-    AlmgrupoRepository almgrupoRepository;
+    AlmgrupoService almgrupoService;
 
     @Autowired
     AlmService almService;
@@ -67,7 +68,7 @@ public class AlmController {
     @GetMapping("/add")
     public String add(Model model) {
         model.addAttribute("alm", new Alm());
-        model.addAttribute("almgrupo", almgrupoRepository.findAll());
+        model.addAttribute("almgrupo", almgrupoService.findAllAlta());
         return "alm/form";
     }
 
@@ -82,8 +83,7 @@ public class AlmController {
     public String edit(@PathVariable String id, Model model) {
 
         model.addAttribute("alm", almRepository.findById(id));
-        model.addAttribute("almgrupo", almgrupoRepository.findAll());
-        List<SelectOption> A = Utils.cboEstatusAlm();
+        model.addAttribute("almgrupo", almgrupoService.findAllAlta());
         model.addAttribute("listestatus", Utils.cboEstatusAlm());
         return "alm/form";
 

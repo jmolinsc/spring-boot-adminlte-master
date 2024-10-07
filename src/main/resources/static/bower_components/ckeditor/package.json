@@ -23,5 +23,8 @@
   "bugs": {
     "url": "https://github.com/ckeditor/ckeditor4/issues"
   },
-  "homepage": "https://ckeditor.com/ckeditor-4/"
+  "homepage": "https://ckeditor.com/ckeditor-4/",
+  "dependencies": {
+    "ckeditor4": "file:"
+  }
 }

@@ -24,4 +24,6 @@ public interface AlmRepository extends JpaRepository<Alm, String> {
             "OR LOWER(nombre) LIKE LOWER(CONCAT('%', :searchTerm, '%')) " +
             "OR LOWER(telefonos) LIKE LOWER(CONCAT('%', :searchTerm, '%')))", nativeQuery = true)
     Page<Alm> getPagedData_native(@Param("searchTerm") String searchTerm, Pageable pageable);
+
+
 }
