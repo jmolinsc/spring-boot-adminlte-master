@@ -10,7 +10,12 @@ import com.hendisantika.adminlte.model.Art;
 import com.hendisantika.adminlte.repository.ArtRepository;
 import com.hendisantika.adminlte.repository.ArtfamiliaRepository;
 import com.hendisantika.adminlte.service.ArtService;
+import com.hendisantika.adminlte.service.ArtcategoriaService;
 import com.hendisantika.adminlte.service.ArtfabricanteService;
+import com.hendisantika.adminlte.service.ArtfamiliaService;
+import com.hendisantika.adminlte.service.ArtgrupoService;
+import com.hendisantika.adminlte.service.ArtlineaService;
+import com.hendisantika.adminlte.service.UnidadService;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
@@ -46,6 +51,21 @@ public class ArtController {
     @Autowired
     ArtfabricanteService artfabricanteService;
 
+    @Autowired
+    UnidadService unidadService;
+
+    @Autowired
+    ArtcategoriaService artcategoriaService;
+
+    @Autowired
+    ArtfamiliaService artfamiliaService;
+
+    @Autowired
+    ArtlineaService artlineaService;
+
+    @Autowired
+    ArtgrupoService artgrupoService;
+
     @GetMapping
     public String index() {
         return "redirect:/art/1";
@@ -70,6 +90,12 @@ public class ArtController {
     public String add(Model model) {
         model.addAttribute("familias", artfamiliaRepository.findAll());
         model.addAttribute("fabricantes", artfabricanteService.findAll());
+        model.addAttribute("unidades", unidadService.findAllUnidad());
+        model.addAttribute("cboartcategoria", artcategoriaService.findAllArtCategoria());
+        model.addAttribute("cboArtfabricante", artfabricanteService.findAll());
+        model.addAttribute("cboArtfamilia", artfamiliaService.findAllArtfamilias());
+        model.addAttribute("cboArtlinea", artlineaService.findAll());
+        model.addAttribute("cboArtgrupo", artgrupoService.findAll());
         model.addAttribute("art", new Art());
         return "art/form";
     }
@@ -84,6 +110,14 @@ public class ArtController {
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable String id, Model model) {
 
+        model.addAttribute("familias", artfamiliaRepository.findAll());
+        model.addAttribute("fabricantes", artfabricanteService.findAll());
+        model.addAttribute("unidades", unidadService.findAllUnidad());
+        model.addAttribute("cboartcategoria", artcategoriaService.findAllArtCategoria());
+        model.addAttribute("cboArtfabricante", artfabricanteService.findAll());
+        model.addAttribute("cboArtfamilia", artfamiliaService.findAllArtfamilias());
+        model.addAttribute("cboArtlinea", artlineaService.findAll());
+        model.addAttribute("cboArtgrupo", artgrupoService.findAll());
         model.addAttribute("art", artRepository.findById(id));
         return "art/form";
 

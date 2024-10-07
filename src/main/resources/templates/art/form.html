@@ -1,276 +1,315 @@
 <!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
-      layout:decorate="layout">
+    layout:decorate="layout">
 
-    <head>
+<head>
 
-        <title>Venta</title>
-    </head>
+    <title>Venta</title>
+</head>
 
-    <body>
-        <section layout:fragment="header">
-            <h1>Articulo</h1>
-            <ol class="breadcrumb">
-                <li><a href="/"><i class="fa fa-dashboard"></i> Cuentas</a></li>
-                <li><a href="/art"><i class="fa fa-dashboard"></i> Listar Articulo</a></li>
-                <li class="active">Articulo</li>
-            </ol>
-        </section>
-        <div layout:fragment="content">
+<body>
+    <section layout:fragment="header">
+        <h1>Articulo</h1>
+        <ol class="breadcrumb">
+            <li><a href="/"><i class="fa fa-dashboard"></i> Cuentas</a></li>
+            <li><a href="/art"><i class="fa fa-dashboard"></i> Listar Articulo</a></li>
+            <li class="active">Articulo</li>
+        </ol>
+    </section>
+    <div layout:fragment="content">
 
-            <div class="box">
-                <div class="box-header with-border">
-                    <h3 class="box-title">Datos</h3>
-                    <div class="box-tools pull-right">
-                        <a href="/art" type="button" class="btn btn-box-tool"><i class="fa fa-list-ul"></i></a>
-                    </div>
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Datos</h3>
+                <div class="box-tools pull-right">
+                    <a href="/art" type="button" class="btn btn-box-tool"><i class="fa fa-list-ul"></i></a>
                 </div>
-                <form data-toggle="validator" role="form" th:object="${art}" th:action="@{/art/save}" method="post">
-                    <div class="box-body">
-                        <div role="tabpanel">
+            </div>
+            <form data-toggle="validator" role="form" th:object="${art}" th:action="@{/art/save}" method="post">
+                <div class="box-body">
+                    <div role="tabpanel">
 
 
-                            <ul class="nav nav-tabs">
-                                <li role="presentation" class="active">
-                                    <a href="#home" aria-controls="home" role="tab" data-toggle="tab">Generales</a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Precios</a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="#Planeacion" aria-controls="Planeacion" role="tab" data-toggle="tab">Planeacion</a>
-                                </li>
-                                <li role="presentation">
-                                    <a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Otros</a>
-                                </li>
-                            </ul>
+                        <ul class="nav nav-tabs">
+                            <li role="presentation" class="active">
+                                <a href="#home" aria-controls="home" role="tab" data-toggle="tab">Generales</a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#profile" aria-controls="profile" role="tab" data-toggle="tab">Precios</a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#Planeacion" aria-controls="Planeacion" role="tab"
+                                    data-toggle="tab">Planeacion</a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#messages" aria-controls="messages" role="tab" data-toggle="tab">Otros</a>
+                            </li>
+                        </ul>
 
-                            <!-- Tab panes -->
+                        <!-- Tab panes -->
 
-                            <div class="box-body">
-                                <div class="tab-content">
-                                    <div role="tabpanel" class="tab-pane active" id="home">
-                                        <di class="row">
-                                            <input type="hidden" th:field="*{alta}" />
+                        <div class="box-body">
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="home">
+                                    <di class="row">
+                                        <input type="hidden" th:field="*{alta}" />
 
-                                            <div class="form-group col-sm-3">
-                                                <label for="articulo">Articulo</label>
-                                                <input type="text" required="true" class="form-control" th:field="*{articulo}" id="articulo" />
-                                            </div>
-                                            <div class="form-group col-sm-3">
-                                                <label for="tipo">Tipo</label>
-                                                <input type="text" class="form-control" th:field="*{tipo}"
-                                                       id="tipo" />
-                                            </div>
-                                            <div class="form-group col-sm-3">
-                                                <label for="estatus">Estatus</label>
-                                                <input type="text"  class="form-control" th:field="*{estatus}"
-                                                       id="estatus" />
-                                            </div>
+                                        <div class="form-group col-sm-3">
+                                            <label for="articulo">Articulo</label>
+                                            <input type="text" required="true" class="form-control"
+                                                th:field="*{articulo}" id="articulo" />
+                                        </div>
+
+                                        <div class="form-group col-sm-2">
+                                            <label for="tipo">Tipo</label>
+                                            <select id="tipo" class="form-control" th:field="*{tipo}">
+
+                                                <option th:value="NORMAL" th:text="NORMAL"></option>
+                                                <option th:value="SERIE" th:text="SERIE"></option>
+                                                <option th:value="SERVICIO" th:text="SERVICIO"></option>
+                                            </select>
+                                        </div>
+                                        <div class="form-group col-sm-3">
+                                            <label for="email">Estatus</label>
+                                            <select id="estatus" class="form-control" th:field="*{estatus}">
+
+                                                <option th:value="ALTA" th:text="ALTA"></option>
+                                                <option th:value="BAJA" th:text="BAJA"></option>
+                                            </select>
+                                        </div>
 
 
-                                        </di>
-                                        <di class="row">
-                                            <div class="form-group col-sm-6">
-                                                <label for="Lastname">Descripcion 1</label>
-                                                <input type="text"  class="form-control" th:field="*{descripcion1}" id="descripcion1" />
-                                            </div>
-                                            <div class="form-group col-sm-6">
-                                                <label for="descripcion2">Descripcion 2</label>
-                                                <input type="text"  class="form-control" th:field="*{descripcion2}"
-                                                       id="peso" />
-                                            </div>
+                                    </di>
+                                    <di class="row">
+                                        <div class="form-group col-sm-6">
+                                            <label for="Lastname">Descripcion 1</label>
+                                            <input type="text" class="form-control" th:field="*{descripcion1}"
+                                                id="descripcion1" />
+                                        </div>
+                                        <div class="form-group col-sm-6">
+                                            <label for="descripcion2">Descripcion 2</label>
+                                            <input type="text" class="form-control" th:field="*{descripcion2}"
+                                                id="peso" />
+                                        </div>
 
-                                        </di>
+                                    </di>
 
-                                        <di class="row">
-                                            <div class="form-group col-sm-2">
-                                                <label for="Lastname">Unidad</label>
-                                                <input type="text" class="form-control" th:field="*{unidadByidunidad.id}" id="unidadByidunidad" />
-                                            </div>
-                                            <div class="form-group col-sm-2">
-                                                <label for="email">Unidad Traspaso</label>
-                                                <input type="text"  class="form-control" th:field="*{unidadByidunidadtraspaso.id}"
-                                                       id="peso" />
-                                            </div>
+                                    <di class="row">
 
-                                            <div class="form-group col-sm-2">
-                                                <label for="email">Unidad Compra</label>
-                                                <input type="text"  class="form-control" th:field="*{unidadByidunidadcompra.id}"
-                                                       id="peso" />
-                                            </div>
+                                        <div class="form-group col-sm-2">
+                                            <label for="Lastname">Unidad</label>
+                                            <select id="unidadByidunidad" class="form-control"
+                                                h:field="*{unidadByidunidad.id}">
+                                                <option th:each="item : ${unidades}" th:value="${item.id}"
+                                                    th:text="${item.nombre}"></option>
+                                            </select>
 
-                                            <div class="form-group col-sm-2">
-                                                <label for="email">Peso</label>
-                                                <input type="text"  class="form-control" th:field="*{peso}"
-                                                       id="peso" />
-                                            </div>
+                                        </div>
+                                        <div class="form-group col-sm-2">
+                                            <label for="unidadByidunidad">Unidad Traspaso</label>
+                                            <select id="unidadByidunidad" class="form-control"
+                                                th:field="*{unidadByidunidadtraspaso.id}">
+                                                <option th:each="item : ${unidades}" th:value="${item.id}"
+                                                    th:text="${item.nombre}"></option>
+                                            </select>
 
-                                        </di>
-                                        <di class="row">
-                                            <div class="form-group col-sm-2">
-                                                <label for="Lastname">Categoria</label>
-                                                <input type="text"  class="form-control" th:field="*{artcategoria.id}" id="artcategoria" />
-                                            </div>
-                                            <div class="form-group col-sm-2">
-                                                <label for="email">Grupo</label>
-                                                <input type="text" class="form-control"  th:field="*{artgrupo.id}" id="artgrupo" />
-                                            </div>
+                                        </div>
 
-                                            <div class="form-group col-sm-2">
-                                                <label for="email">Familia</label>
-                                                <select  id="artfamilia" class="form-control" th:field="*{artfamilia.id}">
-                                                    <option
-                                                        th:each="item : ${familias}"
-                                                        th:value="${item.id}"
-                                                        th:text="${item.nombre}"
-                                                        >
+                                        <div class="form-group col-sm-2">
+                                            <label for="unidadByidunidadcompra">Unidad Compra</label>
+                                            <select id="unidadByidunidadcompra" class="form-control"
+                                                th:field="*{unidadByidunidadcompra.id}">
+                                                <option th:each="item : ${unidades}" th:value="${item.id}"
+                                                    th:text="${item.nombre}"></option>
+                                            </select>
 
-                                                    </option>
-                                                </select>
+                                        </div>
 
-                                            </div>
-                                            <div class="form-group col-sm-2">
-                                                <label for="email">Linea</label>
-                                                <input type="text"  class="form-control" th:field="*{artlinea.id}" id="artlinea" />
-                                            </div>
-                                        </di>
-                                        <di class="row">
-                                            <div class="form-group col-sm-2">
-                                                <label for="Lastname">Fabricante</label>
-                                                <select  id="artfabricante" class="form-control" th:field="*{artfabricante.id}">
-                                                    <option
-                                                        th:each="item : ${fabricantes}"
-                                                        th:value="${item.id}"
-                                                        th:text="${item.nombre}"
-                                                        ></option>
-                                                </select>
+                                        <div class="form-group col-sm-2">
+                                            <label for="email">Peso</label>
+                                            <input type="text" class="form-control" th:field="*{peso}" id="peso" />
+                                        </div>
 
-                                            </div>
-                                            <div class="form-group col-sm-2">
-                                                <label for="email">Codigo Fabricante</label>
-                                                <input type="text"  class="form-control" th:field="*{artfabricante.id}" id="artfabricante" />
-                                            </div>
+                                    </di>
+                                    <di class="row">
 
-                                            <div class="form-group col-sm-2">
-                                                <label for="Lastname">IVA</label>
-                                                <input type="text"  class="form-control" th:field="*{impuesto1}" id="impuesto1" />
-                                            </div>
-                                        </di>
-                                        <di class="row">
+                                        <div class="form-group col-sm-2">
+                                            <label for="artcategoria">Categoria</label>
+                                            <select id="artcategoria" class="form-control"
+                                                th:field="*{artcategoria.id}">
+                                                <option th:each="item : ${cboartcategoria}" th:value="${item.id}"
+                                                    th:text="${item.nombre}"></option>
+                                            </select>
 
-                                            <div class="form-group col-sm-2">
-                                                <label for="email">Instrucciones</label>
-                                                <input type="text" class="form-control" th:field="*{instrucciones}"
-                                                       id="instrucciones" />
-                                            </div>
-                                            <div class="form-group col-sm-2">
-                                                <label for="email">Registro</label>
-                                                <input type="text" class="form-control" th:field="*{registrosv}"
-                                                       id="registrosv" />
-                                            </div>
-                                            <div class="form-group col-sm-2">
-                                                <label for="email">Otros Datos</label>
-                                                <input type="text"  class="form-control" th:field="*{otrosdatos}"
-                                                       id="peotrosdatosso" />
-                                            </div>
+                                        </div>
 
-                                        </di>
+                                        <div class="form-group col-sm-2">
+                                            <label for="artgrupo">Grupo</label>
+                                            <select id="artgrupo" class="form-control" th:field="*{artgrupo.id}">
+                                                <option th:each="item : ${cboArtgrupo}" th:value="${item.id}"
+                                                    th:text="${item.nombre}"></option>
+                                            </select>
+
+                                        </div>
+
+                                        <div class="form-group col-sm-2">
+                                            <label for="artfamilia">Familia</label>
+                                            <select id="artfamilia" class="form-control" th:field="*{artfamilia.id}">
+                                                <option th:each="item : ${cboArtfamilia}" th:value="${item.id}"
+                                                    th:text="${item.nombre}"></option>
+                                            </select>
+
+                                        </div>
+                                        <div class="form-group col-sm-2">
+                                            <label for="artlinea">Linea</label>
+                                            <select id="artlinea" class="form-control" th:field="*{artlinea.id}">
+                                                <option th:each="item : ${cboArtlinea}" th:value="${item.id}"
+                                                    th:text="${item.nombre}"></option>
+                                            </select>
+
+                                        </div>
+                                    </di>
+                                    <di class="row">
+
+                                        <div class="form-group col-sm-2">
+                                            <label for="artfabricante">Fabricante</label>
+                                            <select id="artfabricante" class="form-control"
+                                                th:field="*{artfabricante.id}">
+                                                <option th:each="item : ${cboArtfabricante}" th:value="${item.id}"
+                                                    th:text="${item.nombre}"></option>
+                                            </select>
+
+                                        </div>
+
+                                        <div class="form-group col-sm-2">
+                                            <label for="email">Codigo Fabricante</label>
+                                            <input type="text" class="form-control" th:field="*{artfabricante.id}"
+                                                id="artfabricante" />
+                                        </div>
+
+                                        <div class="form-group col-sm-2">
+                                            <label for="Lastname">IVA</label>
+                                            <input type="text" class="form-control" th:field="*{impuesto1}"
+                                                id="impuesto1" />
+                                        </div>
+                                    </di>
+                                    <di class="row">
+
+                                        <div class="form-group col-sm-2">
+                                            <label for="email">Instrucciones</label>
+                                            <input type="text" class="form-control" th:field="*{instrucciones}"
+                                                id="instrucciones" />
+                                        </div>
+                                        <div class="form-group col-sm-2">
+                                            <label for="email">Registro</label>
+                                            <input type="text" class="form-control" th:field="*{registrosv}"
+                                                id="registrosv" />
+                                        </div>
+                                        <div class="form-group col-sm-2">
+                                            <label for="email">Otros Datos</label>
+                                            <input type="text" class="form-control" th:field="*{otrosdatos}"
+                                                id="peotrosdatosso" />
+                                        </div>
+
+                                    </di>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="profile">
+
+                                    <di class="row">
+
+                                        <div class="form-group col-sm-2">
+                                            <label for="email">Precio Lista</label>
+                                            <input type="text" class="form-control" th:field="*{preciolista}"
+                                                id="peso" />
+                                        </div>
+                                        <div class="form-group col-sm-2">
+                                            <label for="email">Precio 2</label>
+                                            <input type="text" class="form-control" th:field="*{precio2}" id="peso" />
+                                        </div>
+                                        <div class="form-group col-sm-2">
+                                            <label for="email">Precio 3</label>
+                                            <input type="text" class="form-control" th:field="*{precio3}" id="peso" />
+                                        </div>
+
+                                        <div class="form-group col-sm-2">
+                                            <label for="email">Precio 4</label>
+                                            <input type="text" class="form-control" th:field="*{precio4}" id="peso" />
+                                        </div>
+
+                                    </di>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="Planeacion">
+
+                                    <div class="row">
+
+                                        <div class="form-group col-sm-2">
+                                            <label for="sevende">Se vende</label>
+
+                                            <input type="checkbox" th:checked="${sevende}" />
+                                        </div>
+                                        <div class="form-group col-sm-2">
+                                            <label for="secompra">Se Compra</label>
+
+                                            <input type="checkbox" th:value="${secompra}" th:field="*{secompra}" />
+                                        </div>
+                                        <div class="form-group col-sm-2">
+                                            <label for="seproduce">Se produce</label>
+                                            <input type="checkbox" th:checked="${seproduce}" />
+                                        </div>
+
                                     </div>
-                                    <div role="tabpanel" class="tab-pane" id="profile">
-
-                                        <di class="row">
-
-                                            <div class="form-group col-sm-2">
-                                                <label for="email">Precio Lista</label>
-                                                <input type="text"  class="form-control" th:field="*{preciolista}"
-                                                       id="peso" />
-                                            </div>
-                                            <div class="form-group col-sm-2">
-                                                <label for="email">Precio 2</label>
-                                                <input type="text" class="form-control" th:field="*{precio2}"
-                                                       id="peso" />
-                                            </div>
-                                            <div class="form-group col-sm-2">
-                                                <label for="email">Precio 3</label>
-                                                <input type="text"  class="form-control" th:field="*{precio3}"
-                                                       id="peso" />
-                                            </div>
-
-                                            <div class="form-group col-sm-2">
-                                                <label for="email">Precio 4</label>
-                                                <input type="text"  class="form-control" th:field="*{precio4}"
-                                                       id="peso" />
-                                            </div>
-
-                                        </di>
-                                    </div>
-                                    <div role="tabpanel" class="tab-pane" id="Planeacion">
-
-                                        <di class="row">
-
-                                            <div class="form-group col-sm-2">
-                                                <label for="email">Se vende</label>
-                                                <input type="text" class="form-control" th:field="*{sevende}"
-                                                       id="peso" />
-                                            </div>
-                                            <div class="form-group col-sm-2">
-                                                <label for="email">Se Compra</label>
-                                                <input type="text" class="form-control" th:field="*{secompra}"
-                                                       id="peso" />
-                                            </div>
-                                            <div class="form-group col-sm-2">
-                                                <label for="email">Se produce</label>
-                                                <input type="text"  class="form-control" th:field="*{seproduce}"
-                                                       id="peso" />
-                                            </div>
-
-                                            <div class="form-group col-sm-2">
-                                                <label for="email">Proveedor</label>
-                                                <input type="text"  class="form-control" th:field="*{proveedor}"
-                                                       id="proveedor" />
-                                            </div>
-
-                                        </di>
-                                    </div>
-
-                                    <div role="tabpanel" class="tab-pane" id="messages">
-                                        <di class="row">
-
-                                            <div class="form-group col-sm-2">
-                                                <label for="email">Cuenta Inventario</label>
-                                                <input type="text"  class="form-control" th:field="*{cuenta}"
-                                                       id="peso" />
-                                            </div>
-                                            <div class="form-group col-sm-2">
-                                                <label for="email">Cuenta Ingresos</label>
-                                                <input type="text"  class="form-control" th:field="*{cuenta2}"
-                                                       id="cuenta2" />
-                                            </div>
-                                            <div class="form-group col-sm-2">
-                                                <label for="email">Cuenta Costo VTA</label>
-                                                <input type="text" class="form-control" th:field="*{cuenta3}"
-                                                       id="pecuenta3so" />
-                                            </div>
-
-
+                                    <div class="row">
+                                        <div class="form-group col-sm-2">
+                                            <label for="proveedor">Proveedor</label>
+                                            <input type="text" class="form-control" th:field="*{proveedor}"
+                                                id="proveedor" />
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="provnombre">Nombre</label>
+                                            <input type="text" class="form-control" th:field="*{proveedor}"
+                                                id="proveedor" />
+                                        </div>
 
                                     </div>
+
+                                </div>
+
+                                <div role="tabpanel" class="tab-pane" id="messages">
+                                    <di class="row">
+
+                                        <div class="form-group col-sm-2">
+                                            <label for="email">Cuenta Inventario</label>
+                                            <input type="text" class="form-control" th:field="*{cuenta}" id="peso" />
+                                        </div>
+                                        <div class="form-group col-sm-2">
+                                            <label for="email">Cuenta Ingresos</label>
+                                            <input type="text" class="form-control" th:field="*{cuenta2}"
+                                                id="cuenta2" />
+                                        </div>
+                                        <div class="form-group col-sm-2">
+                                            <label for="email">Cuenta Costo VTA</label>
+                                            <input type="text" class="form-control" th:field="*{cuenta3}"
+                                                id="pecuenta3so" />
+                                        </div>
+
+
+
                                 </div>
                             </div>
                         </div>
-
-
-                        <div class="box-footer">
-                            <button class="btn btn-primary" type="submit">Save</button>
-                        </div>
-
-
                     </div>
-                </form>
-            </div>
 
 
-    </body>
+                    <div class="box-footer">
+                        <button class="btn btn-primary" type="submit">Save</button>
+                    </div>
+
+
+                </div>
+            </form>
+        </div>
+
+
+</body>
 
 </html>

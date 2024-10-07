@@ -240,43 +240,43 @@ public class Art implements Serializable {
     @JsonIgnore
     @JsonView
     @JoinColumns({
-        @JoinColumn(name = "IDUNIDAD", referencedColumnName = "ID")})
+            @JoinColumn(name = "IDUNIDAD", referencedColumnName = "ID") })
     Unidad unidadByidunidad;
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JsonIgnore
 
     @JoinColumns({
-        @JoinColumn(name = "UNIDADCOMPRA", referencedColumnName = "ID")})
+            @JoinColumn(name = "UNIDADCOMPRA", referencedColumnName = "ID") })
     Unidad unidadcompra;
 
-    @OneToMany(mappedBy = "art", cascade = {CascadeType.REMOVE}, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "art", cascade = { CascadeType.REMOVE }, fetch = FetchType.LAZY)
     @JsonIgnore
     List<Auxiliaru> auxiliarus;
 
     @OneToOne(fetch = FetchType.EAGER)
     @JoinColumns({
-        @JoinColumn(name = "ARTICULO", referencedColumnName = "ARTICULO", insertable = false, updatable = false),
-        @JoinColumn(name = "IDUNIDAD", referencedColumnName = "IDUNIDAD", insertable = false, updatable = false)})
+            @JoinColumn(name = "ARTICULO", referencedColumnName = "ARTICULO", insertable = false, updatable = false),
+            @JoinColumn(name = "IDUNIDAD", referencedColumnName = "IDUNIDAD", insertable = false, updatable = false) })
     Artunidad artunidad;
 
-    @OneToMany(mappedBy = "art", cascade = {CascadeType.REMOVE}, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "art", cascade = { CascadeType.REMOVE }, fetch = FetchType.LAZY)
     @JsonIgnore
     List<Artunidad> artunidadds;
 
-    @OneToMany(mappedBy = "art", cascade = {CascadeType.REMOVE}, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "art", cascade = { CascadeType.REMOVE }, fetch = FetchType.LAZY)
     @JsonIgnore
     List<Ventad> ventads;
 
-    @OneToMany(mappedBy = "art", cascade = {CascadeType.REMOVE}, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "art", cascade = { CascadeType.REMOVE }, fetch = FetchType.LAZY)
     @JsonIgnore
     List<Saldou> saldous;
 
-    @OneToMany(mappedBy = "art", orphanRemoval = true, cascade = {CascadeType.REMOVE}, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "art",  cascade = { CascadeType.REMOVE }, fetch = FetchType.LAZY)
     @JsonIgnore
     List<Artalm> artalm;
 
-    @OneToMany(mappedBy = "art", cascade = {CascadeType.ALL}, orphanRemoval = true, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "art", cascade = { CascadeType.ALL }, fetch = FetchType.LAZY)
     @JsonIgnore
     List<Artjuego> artjuego;
 

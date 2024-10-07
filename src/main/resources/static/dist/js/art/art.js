@@ -8,7 +8,7 @@ $(function () {
         alert("test");
     });
 
-    const table = new DataTable("#example", {
+    const table = new DataTable("#dtArt", {
         serverSide: true,
         bSort: true,
         scrollY: "40vh",
@@ -58,9 +58,8 @@ $(function () {
                 class: "text-center",
                 render: (data, type, row) => {
                     console.log(row);
-                    return `<a href='${
-                            "/art/edit/" + row.articulo
-                            }'><i class="fa fa-pencil"/></a>`;
+                    return `<a href='${"/art/edit/" + row.articulo
+                        }'><i class="fa fa-pencil"/></a>`;
                 },
             },
         ],
