@@ -60,7 +60,7 @@ public class Art implements Serializable {
 
     @Column(name = "SECOMPRA", nullable = true)
     @JsonView
-    Integer secompra;
+    Boolean secompra;
 
     @Column(name = "CUENTA2", length = 20, nullable = true)
     @JsonView
@@ -98,7 +98,7 @@ public class Art implements Serializable {
 
     @Column(name = "SEPRODUCE", nullable = true)
     @JsonView
-    Integer seproduce;
+    Boolean seproduce;
 
     @Column(name = "MARGEN", scale = 4, precision = 18, nullable = true)
     @JsonView
@@ -131,11 +131,11 @@ public class Art implements Serializable {
 
     @Column(name = "SEVENDE", nullable = true)
     @JsonView
-    Integer sevende;
+    Boolean sevende;
 
     @Column(name = "ESFORMULA", nullable = true)
     @JsonView
-    Integer esformula;
+    Boolean esformula;
 
     @Column(name = "PRECIO2", scale = 4, precision = 18, nullable = true)
     @JsonView
