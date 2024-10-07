@@ -1,13 +1,13 @@
 package com.hendisantika.adminlte.service;
 
+
 import java.util.List;
 
 import com.hendisantika.adminlte.datatable.Page;
 import com.hendisantika.adminlte.datatable.PagingRequest;
-import com.hendisantika.adminlte.model.Alm;
+import com.hendisantika.adminlte.model.Almgrupo;
 
-public interface AlmService {
+public interface AlmgrupoService {
 
-    Page<Alm> getPaginatedDatatable(PagingRequest pagingRequest);
-   
+    List<Almgrupo> findAllAlta();
 }

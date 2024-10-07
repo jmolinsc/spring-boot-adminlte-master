@@ -10,7 +10,7 @@
 
   <body>
     <section layout:fragment="header">
-      <h1>Venta</h1>
+      <h1>Almacen</h1>
       <ol class="breadcrumb">
         <li>
           <a href="/"><i class="fa fa-dashboard"></i> Dashboard</a>
@@ -63,11 +63,9 @@
               <div class="form-group col-sm-2">
                 <label for="email">Estatus</label>
                 <select id="estatus" class="form-control" th:field="*{estatus}">
-                  <option
-                    th:each="es : ${listestatus}"
-                    th:value="${es.id}"
-                    th:text="${es.value}"
-                  ></option>
+                 
+                  <option th:value="ALTA" th:text="ALTA"></option>
+                  <option th:value="BAJA" th:text="BAJA"></option>
                 </select>
               </div>
               <div class="form-group col-sm-2">

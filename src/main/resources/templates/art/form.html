@@ -116,9 +116,19 @@
                                                 <label for="email">Grupo</label>
                                                 <input type="text" class="form-control"  th:field="*{artgrupo.id}" id="artgrupo" />
                                             </div>
+
                                             <div class="form-group col-sm-2">
                                                 <label for="email">Familia</label>
-                                                <input type="text"  class="form-control" th:field="*{artfamilia.id}" id="artfamilia" />
+                                                <select  id="artfamilia" class="form-control" th:field="*{artfamilia.id}">
+                                                    <option
+                                                        th:each="item : ${familias}"
+                                                        th:value="${item.id}"
+                                                        th:text="${item.nombre}"
+                                                        >
+
+                                                    </option>
+                                                </select>
+
                                             </div>
                                             <div class="form-group col-sm-2">
                                                 <label for="email">Linea</label>
@@ -129,11 +139,11 @@
                                             <div class="form-group col-sm-2">
                                                 <label for="Lastname">Fabricante</label>
                                                 <select  id="artfabricante" class="form-control" th:field="*{artfabricante.id}">
-                                                <option
-                                                    th:each="item : ${fabricantes}"
-                                                    th:value="${item.id}"
-                                                    th:text="${item.nombre}"
-                                                ></option>
+                                                    <option
+                                                        th:each="item : ${fabricantes}"
+                                                        th:value="${item.id}"
+                                                        th:text="${item.nombre}"
+                                                        ></option>
                                                 </select>
 
                                             </div>
@@ -141,7 +151,7 @@
                                                 <label for="email">Codigo Fabricante</label>
                                                 <input type="text"  class="form-control" th:field="*{artfabricante.id}" id="artfabricante" />
                                             </div>
-                                       
+
                                             <div class="form-group col-sm-2">
                                                 <label for="Lastname">IVA</label>
                                                 <input type="text"  class="form-control" th:field="*{impuesto1}" id="impuesto1" />
@@ -243,7 +253,7 @@
                                                        id="pecuenta3so" />
                                             </div>
 
-                                          
+
 
                                     </div>
                                 </div>
