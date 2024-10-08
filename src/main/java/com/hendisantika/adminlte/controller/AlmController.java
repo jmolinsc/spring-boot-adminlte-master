@@ -42,6 +42,8 @@ public class AlmController {
     @Autowired
     AlmService almService;
 
+    public String action = "Add";
+
     @GetMapping
     public String index() {
         return "redirect:/alm/1";
@@ -81,7 +83,7 @@ public class AlmController {
 
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable String id, Model model) {
-
+        action = "Edit";
         model.addAttribute("alm", almRepository.findById(id));
         model.addAttribute("almgrupo", almgrupoService.findAllAlta());
         model.addAttribute("listestatus", Utils.cboEstatusAlm());
@@ -93,8 +95,9 @@ public class AlmController {
     public String save(Alm alm, final RedirectAttributes ra) {
 
         Alm save = almRepository.save(alm);
-        ra.addFlashAttribute("successFlash", "Almacen creado exitosamente");
-        return "redirect:/alm";
+        ra.addFlashAttribute("successFlash",
+                "Almacen " + (action.equals("Edit") ? "Actualizado" : "Creado") + " exitosamente");
+        return "redirect:/alm/edit/" + save.getAlmacen();
 
     }
 

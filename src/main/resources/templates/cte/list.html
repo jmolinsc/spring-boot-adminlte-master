@@ -1,0 +1,47 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="layout">
+
+<head>
+    <title>Clientes</title>
+</head>
+
+<body>
+    <section layout:fragment="header">
+        <h1>Clientes</h1>
+        <ol class="breadcrumb">
+            <li><a href="/"><i class="fa fa-dashboard"></i> Dashboard</a></li>
+            <li class="active">Cliente</li>
+        </ol>
+    </section>
+    <div layout:fragment="content">
+        <div class="box">
+            <div class="box-header with-border">
+                <h3 class="box-title">Lists</h3>
+                <div class="box-tools pull-right">
+                    <a href="/cte/add" type="button" class="btn btn-box-tool"><i class="fa fa-plus"></i></a>
+                    <br clear="all" />
+                </div>
+            </div>
+            <div class="box-body no-padding">
+                <table id="dtCte" class="table table-bordered">
+                    <thead>
+                        <tr>
+                            <th>Cliente</th>
+                            <th>Nombre</th>
+                            <th>Familia</th>
+                        </tr>
+                    </thead>
+                </table>
+            </div>
+
+        </div>
+
+
+    </div>
+    <th:block layout:fragment="script">
+        <script th:src="@{/dist/js/cte/cte.js}"></script>
+    </th:block>
+</body>
+
+</html>

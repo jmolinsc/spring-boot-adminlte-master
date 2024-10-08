@@ -110,8 +110,8 @@ public class Alm implements Serializable {
 	@JsonIgnore
 	List<Saldou> saldous;
 
-	@OneToMany(mappedBy = "alm", cascade = { CascadeType.REMOVE }, orphanRemoval = true, fetch = FetchType.LAZY)
+	@OneToMany(mappedBy = "alm", cascade = { CascadeType.REMOVE }, fetch = FetchType.LAZY)
 	@JsonIgnore
-	List<Artalm> aralm;
+	List<Artalm> artalm;
 
 }

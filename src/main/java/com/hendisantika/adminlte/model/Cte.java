@@ -49,10 +49,6 @@ public class Cte implements Serializable {
     @JsonView
     String cliente;
 
-    @Column(name = "NORITICARATELEFONOS", length = 100, nullable = true)
-    @JsonView
-    String noriticaratelefonos;
-
     @Column(name = "RAZONSOCIAL", length = 100, nullable = true)
     @JsonView
     String razonsocial;
@@ -81,10 +77,6 @@ public class Cte implements Serializable {
     @JsonView
     String descuento;
 
-    @Column(name = "NOMBREABREVIADO", length = 50, nullable = true)
-    @JsonView
-    String nombreabreviado;
-
     @Column(name = "CREDITOCONLIMITE", nullable = false)
     @JsonView
     Integer creditoconlimite;
@@ -92,10 +84,6 @@ public class Cte implements Serializable {
     @Column(name = "GRUPO", length = 50, nullable = true)
     @JsonView
     String grupo;
-
-    @Column(name = "USERNAME", length = 100, nullable = true)
-    @JsonView
-    String username;
 
     @Column(name = "NIT", length = 17, nullable = true)
     @JsonView
@@ -115,6 +103,10 @@ public class Cte implements Serializable {
     @Column(name = "TIPOSERVICIO", length = 50, nullable = true)
     @JsonView
     String tiposervicio;
+
+    @Column(name = "TIPO", length = 50, nullable = true)
+    @JsonView
+    String tipo;
 
     @Column(name = "DIRECCION", length = 250, nullable = true)
     @JsonView
@@ -152,6 +144,10 @@ public class Cte implements Serializable {
     @JsonView
     Integer creditoespecial;
 
+    @Column(name = "DIASTRAMITE", nullable = false)
+    @JsonView
+    Integer diastramite;
+
     @Column(name = "GIRO", length = 150, nullable = true)
     @JsonView
     String giro;
@@ -175,28 +171,33 @@ public class Cte implements Serializable {
     @JsonIgnore
     @JoinColumn(name = "IDCONDICION", referencedColumnName = "ID")
     Condicion condicion;
-//
+    //
     @ManyToOne(fetch = FetchType.EAGER)
     @JsonIgnore
     @JoinColumn(name = "IDLISTAPRECIOS", referencedColumnName = "ID")
     Listaprecios listaprecios;
-//
+    //
     @ManyToOne(fetch = FetchType.EAGER)
     @JsonIgnore
     @JoinColumn(name = "IDDEPARTAMENTO", referencedColumnName = "ID")
     Departamento departamento;
-//
+    //
     @ManyToOne(fetch = FetchType.EAGER)
     @JsonIgnore
     @JoinColumn(name = "IDMUNICIPIO", referencedColumnName = "ID")
     Municipio municipio;
-//
+    //
     @ManyToOne(fetch = FetchType.EAGER)
     @JsonIgnore
     @JoinColumn(name = "IDPAIS", referencedColumnName = "ID")
     Pais pais;
+
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnore
+    @JoinColumn(name = "IDAE", referencedColumnName = "ID")
+    AE ae;
     // cliente en ventas
-    @OneToMany(mappedBy = "cteBycliente", cascade = {CascadeType.REMOVE}, fetch = FetchType.LAZY)
+    @OneToMany(mappedBy = "cteBycliente", cascade = { CascadeType.REMOVE }, fetch = FetchType.LAZY)
     @JsonIgnore
     List<Venta> ventaByclientes;
 }

@@ -1,0 +1,259 @@
+<!DOCTYPE html SYSTEM "http://www.thymeleaf.org/dtd/xhtml1-strict-thymeleaf-spring4-4.dtd">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+    layout:decorate="layout">
+
+<head>
+    <title>Cliente</title>
+</head>
+
+<body>
+    <section layout:fragment="header">
+        <h1>Clientes</h1>
+        <ol class="breadcrumb">
+            <li>
+                <a href="/"><i class="fa fa-dashboard"></i> Dashboard</a>
+            </li>
+            <li>
+                <a href="/cte"><i class="fa fa-dashboard"></i>Clientes</a>
+            </li>
+            <li class="active">Cliente</li>
+        </ol>
+    </section>
+    <div layout:fragment="content">
+        <div class="box">
+            <form data-toggle="validator" role="form" th:object="${cte}" th:action="@{/cte/save}" method="post">
+                <div class="box-header with-border">
+
+                    <div class="box-tools pull-right">
+                        <a href="/cte" type="button" class="btn btn-box-tool"><i class="fa fa-list-ul"></i></a>
+                    </div>
+                    <div class="btn-box-tool">
+                        <button class="btn btn-primary btn-lg btn-round" type="submit">
+                            <span class="glyphicon glyphicon-floppy-saved">
+                            </span>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="box-body">
+                    <div role="tabpanel">
+                        <ul class="nav nav-tabs">
+                            <li role="presentation" class="active">
+                                <a href="#datosgenerales" aria-controls="Generales" role="tab"
+                                    data-toggle="tab">Generales</a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#reglanegocio" aria-controls="Datos Venta" role="tab" data-toggle="tab">
+                                    Regla Negocio
+                                </a>
+                            </li>
+                            <li role="presentation">
+                                <a href="#otros" aria-controls="Otros" role="tab" data-toggle="tab">Otros</a>
+                            </li>
+
+                        </ul>
+                        <div class="box-body">
+                            <div class="tab-content">
+                                <div role="tabpanel" class="tab-pane active" id="datosgenerales">
+                                    <div class="row">
+                                        <div class="form-group col-sm-2">
+                                            <label for="cliente">Cliente</label>
+                                            <input type="text" class="form-control" th:field="*{cliente}"
+                                                id="cliente" />
+                                        </div>
+                                        <div class="form-group col-sm-6">
+                                            <label for="nombre">Nombre</label>
+                                            <input type="text" class="form-control" th:field="*{nombre}" id="nombre" />
+                                        </div>
+                                        <div class="form-group col-sm-2">
+                                            <label for="tipo">Tipo</label>
+                                            <input type="text" class="form-control" th:field="*{tipo}" id="tipo" />
+                                        </div>
+                                        <div class="form-group col-sm-2">
+                                            <label for="estatus">Estatus</label>
+                                            <input type="text" class="form-control" th:field="*{estatus}"
+                                                id="estatus" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-8">
+                                            <label for="direccion">Direccion</label>
+                                            <input type="text" class="form-control" th:field="*{direccion}"
+                                                id="direccion" />
+                                        </div>
+                                        <div class="form-group col-sm-2">
+                                            <label for="grupo">Grupo</label>
+                                            <input type="text" class="form-control" th:field="*{grupo}" id="grupo" />
+                                        </div>
+                                        <div class="form-group col-sm-2">
+                                            <label for="familia">Familia</label>
+                                            <input type="text" class="form-control" th:field="*{familia}"
+                                                id="familia" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+
+
+                                        <div class="form-group col-sm-2">
+                                            <label for="ncr">Ncr</label>
+                                            <input type="text" class="form-control" th:field="*{ncr}" id="ncr" />
+                                        </div>
+
+                                        <div class="form-group col-sm-2">
+                                            <label for="nit">Nit</label>
+                                            <input type="text" class="form-control" th:field="*{nit}" id="nit" />
+                                        </div>
+                                        <div class="form-group col-sm-2">
+                                            <label for="dui">Dui</label>
+                                            <input type="text" class="form-control" th:field="*{dui}" id="dui" />
+                                        </div>
+                                        <div class="form-group col-sm-2">
+                                            <label for="tipocontribuyente">Tipo Contribuyente</label>
+                                            <input type="text" class="form-control" th:field="*{tipocontribuyente}"
+                                                id="tipocontribuyente" />
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="razonsocial">Razon Social</label>
+                                            <input type="text" class="form-control" th:field="*{razonsocial}"
+                                                id="razonsocial" />
+                                        </div>
+                                    </div>
+
+
+                                    <div class="row">
+
+                                        <div class="form-group col-sm-2">
+                                            <label for="ae"> Codigo Actividad Economica</label>
+                                            <input type="text" class="form-control" th:field="*{ae.id}" id="ae" />
+                                        </div>
+                                        <div class="form-group col-sm-4">
+                                            <label for="ae">Actividad Economica</label>
+                                            <input type="text" class="form-control" th:field="*{ae.actividadeconomica}"
+                                                id="ae" />
+                                        </div>
+                                        <div class="form-group col-sm-6">
+                                            <label for="email">Email</label>
+                                            <input type="text" class="form-control" th:field="*{email}" id="email" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                       
+
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-2">
+                                            <label for="departamento">Departamento</label>
+                                            <input type="text" class="form-control" th:field="*{departamento.id}"
+                                                id="departamento" />
+                                        </div>
+                                        <div class="form-group col-sm-2">
+                                            <label for="municipio">Municipio</label>
+                                            <input type="text" class="form-control" th:field="*{municipio.id}"
+                                                id="municipio" />
+                                        </div>
+                                        <div class="form-group col-sm-2">
+                                            <label for="pais">Pais</label>
+                                            <input type="text" class="form-control" th:field="*{pais.id}" id="pais" />
+                                        </div>
+                                        <div class="form-group col-sm-2">
+                                            <label for="telfijo">Telefono fijo</label>
+                                            <input type="text" class="form-control" th:field="*{telfijo}"
+                                                id="telfijo" />
+                                        </div>
+                                        <div class="form-group col-sm-2">
+                                            <label for="telmovil">Telmovil</label>
+                                            <input type="text" class="form-control" th:field="*{telmovil}"
+                                                id="telmovil" />
+                                        </div>
+
+
+                                        <div class="form-group col-sm-2">
+                                            <label for="tiposervicio">tiposervicio</label>
+                                            <input type="text" class="form-control" th:field="*{tiposervicio}"
+                                                id="tiposervicio" />
+                                        </div>
+
+                                    </div>
+
+                                    <div class="row">
+                                        <div class="form-group col-sm-2">
+                                            <label for="otrodocumento">Otro Documento</label>
+                                            <input type="text" class="form-control" th:field="*{otrodocumento}"
+                                                id="otrodocumento" />
+                                        </div>
+                                        <div class="form-group col-sm-2">
+                                            <label for="ctacontable">Cuenta Contable</label>
+                                            <input type="text" class="form-control" th:field="*{ctacontable}"
+                                                id="ctacontable" />
+                                        </div>
+                                        <div class="form-group col-sm-2">
+                                            <label for="alta">Alta</label>
+                                            <input type="text" class="form-control" th:field="*{alta}" id="alta" />
+                                        </div>
+
+                                       
+                                    </div>
+                                </div>
+                                <div role="tabpanel" class="tab-pane" id="reglanegocio">
+                                    <div class="row">
+                                        <div class="form-group col-sm-2">
+                                            <label for="listaprecios">Lista Precios</label>
+                                            <input type="text" class="form-control" th:field="*{listaprecios}"
+                                                id="listaprecios" />
+                                        </div>
+                                        <div class="form-group col-sm-2">
+                                            <label for="tipoimpuesto">tipoimpuesto</label>
+                                            <input type="text" class="form-control" th:field="*{tipoimpuesto}"
+                                                id="tipoimpuesto" />
+                                        </div>
+                                        <div class="form-group col-sm-2">
+                                            <label for="descuento">Descuento</label>
+                                            <input type="text" class="form-control" th:field="*{descuento}"
+                                                id="descuento" />
+                                        </div>
+                                        <div class="form-group col-sm-2">
+                                            <label for="condicion">Condicion</label>
+                                            <input type="text" class="form-control" th:field="*{condicion.id}"
+                                                id="condicion" />
+                                        </div>
+                                        <div class="form-group col-sm-2">
+                                            <label for="creditoconlimite">Credito Conlimite</label>
+                                            <input type="text" class="form-control" th:field="*{creditoconlimite}"
+                                                id="creditoconlimite" />
+                                        </div>
+                                        <div class="form-group col-sm-2">
+                                            <label for="creditolimite">Credito Limite</label>
+                                            <input type="text" class="form-control" th:field="*{creditolimite}"
+                                                id="creditolimite" />
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="form-group col-sm-2">
+                                            <label for="creditoespecial">Credito Especial</label>
+                                            <input type="text" class="form-control" th:field="*{creditoespecial}"
+                                                id="creditoespecial" />
+                                        </div>
+
+                                    </div>
+                                </div>
+
+                                <div role="tabpanel" class="tab-pane" id="otros">
+                                    <div class="form-group col-sm-2">
+                                        <label for="comentarios">Comentarios</label>
+                                        <textarea type="text" rows="10" class="form-control col-sm-12"
+                                            th:field="*{comentarios}" id="comentarios" /></textarea>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+
+                </div>
+
+            </form>
+        </div>
+    </div>
+</body>
+
+</html>

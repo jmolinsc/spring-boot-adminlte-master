@@ -71,6 +71,8 @@ public class ArtController {
         return "redirect:/art/1";
     }
 
+    public String action = "Add";
+
     @GetMapping(value = "/{pageNumber}")
     public String list(@PathVariable Integer pageNumber, Model model) {
         PageRequest pageRequest = PageRequest.of(pageNumber - 1, 5, Sort.Direction.ASC, "articulo");
@@ -109,7 +111,7 @@ public class ArtController {
 
     @GetMapping("/edit/{id}")
     public String edit(@PathVariable String id, Model model) {
-
+        action = "Edit";
         model.addAttribute("familias", artfamiliaRepository.findAll());
         model.addAttribute("fabricantes", artfabricanteService.findAll());
         model.addAttribute("unidades", unidadService.findAllUnidad());
@@ -127,8 +129,9 @@ public class ArtController {
     public String save(Art art, final RedirectAttributes ra) {
 
         Art save = artRepository.save(art);
-        ra.addFlashAttribute("successFlash", "Articulo creado exitosamente");
-        return "redirect:/art";
+        ra.addFlashAttribute("successFlash",
+                "Articulo " + (action.equals("Edit") ? "Actualizado" : "Creado") + " exitosamente");
+        return "redirect:/art/edit/" + save.getArticulo();
 
     }
 

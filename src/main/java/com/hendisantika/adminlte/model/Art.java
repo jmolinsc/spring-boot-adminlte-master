@@ -159,7 +159,7 @@ public class Art implements Serializable {
 
     @Column(name = "IMPUESTO1", scale = 8, precision = 18, nullable = true)
     @JsonView
-    BigDecimal impuesto1;
+    Integer impuesto1;
 
     @Column(name = "EXISTENCIAMINIMA", scale = 8, precision = 18, nullable = true)
     @JsonView
