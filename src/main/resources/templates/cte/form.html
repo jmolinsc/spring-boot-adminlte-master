@@ -233,9 +233,10 @@
                                         </div>
                                         <div class="form-group col-sm-2">
                                             <label for="condicion">Condicion</label>
-                                            <input type="text" class="form-control" th:field="*{condicion.id}"
-                                                id="condicion" />
-
+                                            <select class="form-control" th:field="*{condicion.id}" id="condicion">
+                                                <option th:each="item : ${cbCondicionescredito}" th:value="${item.id}"
+                                                    th:text="${item.condicion}"></option>
+                                            </select>
                                         </div>
                                         <div class="form-group col-sm-2">
                                             <label for="creditoconlimite">Credito Conlimite</label>

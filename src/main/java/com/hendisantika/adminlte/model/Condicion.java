@@ -47,9 +47,9 @@ public class Condicion implements Serializable {
     @JsonView
     Integer diasvencimiento;
 
-//    @OneToMany(mappedBy = "condicion", fetch = FetchType.LAZY)
-//    @JsonIgnore
-//    List<Venta> ventas;
+    // @OneToMany(mappedBy = "condicion", fetch = FetchType.LAZY)
+    // @JsonIgnore
+    // List<Venta> ventas;
 
     @OneToMany(mappedBy = "condicion", fetch = FetchType.LAZY)
     @JsonIgnore
@@ -57,5 +57,5 @@ public class Condicion implements Serializable {
 
     @Column(name = "TIPO")
     @JsonView
-    Integer tipo;
+    String tipo;
 }

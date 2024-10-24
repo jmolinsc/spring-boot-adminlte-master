@@ -47,10 +47,9 @@ public class CteController {
     @Autowired
     DepartamentoService departamentoService;
 
-    /*
-     * @Autowired
-     * CondicionService condicionService;
-     */
+    @Autowired
+    CondicionService condicionService;
+
     public String action = "Add";
 
     @GetMapping
@@ -94,9 +93,7 @@ public class CteController {
         model.addAttribute("cbopais", paisService.findAllPais());
         model.addAttribute("cboMuncipios", municipioService.findAllMunicipios());
         model.addAttribute("cboDepartamentos", departamentoService.findAllDepartamentos());
-        // List<Condicion> i = condicionService.findAllCondiciones();
-        // model.addAttribute("cbCondicionescredito",
-        // condicionService.findAllCondiciones());
+        model.addAttribute("cbCondicionescredito", condicionService.findAllCondiciones());
         return "cte/form";
     }
 
