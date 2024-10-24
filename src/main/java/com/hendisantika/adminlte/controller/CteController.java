@@ -1,5 +1,7 @@
 package com.hendisantika.adminlte.controller;
 
+import java.util.List;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -16,9 +18,15 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.hendisantika.adminlte.datatable.PagingRequest;
 import com.hendisantika.adminlte.model.Alm;
+import com.hendisantika.adminlte.model.Condicion;
 import com.hendisantika.adminlte.model.Cte;
+import com.hendisantika.adminlte.model.Pais;
 import com.hendisantika.adminlte.repository.CteRepository;
+import com.hendisantika.adminlte.service.CondicionService;
 import com.hendisantika.adminlte.service.CteService;
+import com.hendisantika.adminlte.service.DepartamentoService;
+import com.hendisantika.adminlte.service.MunicipioService;
+import com.hendisantika.adminlte.service.PaisService;
 
 @Controller
 @RequestMapping("cte")
@@ -30,6 +38,19 @@ public class CteController {
     @Autowired
     CteRepository cteRepository;
 
+    @Autowired
+    PaisService paisService;
+
+    @Autowired
+    MunicipioService municipioService;
+
+    @Autowired
+    DepartamentoService departamentoService;
+
+    /*
+     * @Autowired
+     * CondicionService condicionService;
+     */
     public String action = "Add";
 
     @GetMapping
@@ -59,12 +80,23 @@ public class CteController {
     @GetMapping("/add")
     public String add(Model model) {
         model.addAttribute("cte", new Cte());
+        model.addAttribute("cbopais", paisService.findAllPais());
+        model.addAttribute("cboMuncipios", municipioService.findAllMunicipios());
+        model.addAttribute("cboDepartamentos", departamentoService.findAllDepartamentos());
+        // model.addAttribute("cbCondicionescredito",
+        // condicionService.findAllCondiciones());
         return "cte/form";
     }
 
     @GetMapping("/edit/{cliente}")
     public String edit(@PathVariable String cliente, Model model) {
         model.addAttribute("cte", cteService.findById(cliente));
+        model.addAttribute("cbopais", paisService.findAllPais());
+        model.addAttribute("cboMuncipios", municipioService.findAllMunicipios());
+        model.addAttribute("cboDepartamentos", departamentoService.findAllDepartamentos());
+        // List<Condicion> i = condicionService.findAllCondiciones();
+        // model.addAttribute("cbCondicionescredito",
+        // condicionService.findAllCondiciones());
         return "cte/form";
     }
 

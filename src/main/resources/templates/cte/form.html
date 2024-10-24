@@ -108,9 +108,14 @@
                                             <input type="text" class="form-control" th:field="*{dui}" id="dui" />
                                         </div>
                                         <div class="form-group col-sm-2">
-                                            <label for="tipocontribuyente">Tipo Contribuyente</label>
-                                            <input type="text" class="form-control" th:field="*{tipocontribuyente}"
-                                                id="tipocontribuyente" />
+                                            <label for="tipocontribuyente">Tipo</label>
+                                            <select id="tipocontribuyente" class="form-control"
+                                                th:field="*{tipocontribuyente}">
+                                                <option th:value="GRANDE" th:text="GRANDE"></option>
+                                                <option th:value="MEDIANO" th:text="MEDIANO"></option>
+                                                <option th:value="PEQUEÑO" th:text="PEQUEÑO"></option>
+                                                <option th:value="OTROS" th:text="OTROS"></option>
+                                            </select>
                                         </div>
                                         <div class="form-group col-sm-4">
                                             <label for="razonsocial">Razon Social</label>
@@ -137,23 +142,38 @@
                                         </div>
                                     </div>
                                     <div class="row">
-                                       
+
 
                                     </div>
                                     <div class="row">
                                         <div class="form-group col-sm-2">
-                                            <label for="departamento">Departamento</label>
-                                            <input type="text" class="form-control" th:field="*{departamento.id}"
-                                                id="departamento" />
+                                            <label for="pais">Pais</label>
+                                            <select class="form-control" th:field="*{pais.id}" id="pais">
+                                                <option th:each="item : ${cbopais}" th:value="${item.id}"
+                                                    th:text="${item.pais}"></option>
+                                            </select>
+
                                         </div>
+
+
+                                        <div class="form-group col-sm-2">
+                                            <label for="departamento">Departamento</label>
+                                            <select class="form-control" th:field="*{departamento.id}"
+                                                id="departamento">
+                                                <option th:each="item : ${cboDepartamentos}" th:value="${item.id}"
+                                                    th:text="${item.departamento}"></option>
+                                            </select>
+
+                                        </div>
+
+
                                         <div class="form-group col-sm-2">
                                             <label for="municipio">Municipio</label>
-                                            <input type="text" class="form-control" th:field="*{municipio.id}"
-                                                id="municipio" />
-                                        </div>
-                                        <div class="form-group col-sm-2">
-                                            <label for="pais">Pais</label>
-                                            <input type="text" class="form-control" th:field="*{pais.id}" id="pais" />
+                                            <select class="form-control" th:field="*{municipio.id}" id="municipio">
+                                                <option th:each="item : ${cboMuncipios}" th:value="${item.id}"
+                                                    th:text="${item.municipio}"></option>
+                                            </select>
+
                                         </div>
                                         <div class="form-group col-sm-2">
                                             <label for="telfijo">Telefono fijo</label>
@@ -191,14 +211,14 @@
                                             <input type="text" class="form-control" th:field="*{alta}" id="alta" />
                                         </div>
 
-                                       
+
                                     </div>
                                 </div>
                                 <div role="tabpanel" class="tab-pane" id="reglanegocio">
                                     <div class="row">
                                         <div class="form-group col-sm-2">
                                             <label for="listaprecios">Lista Precios</label>
-                                            <input type="text" class="form-control" th:field="*{listaprecios}"
+                                            <input type="text" class="form-control" th:field="*{listaprecios.id}"
                                                 id="listaprecios" />
                                         </div>
                                         <div class="form-group col-sm-2">
@@ -215,6 +235,7 @@
                                             <label for="condicion">Condicion</label>
                                             <input type="text" class="form-control" th:field="*{condicion.id}"
                                                 id="condicion" />
+
                                         </div>
                                         <div class="form-group col-sm-2">
                                             <label for="creditoconlimite">Credito Conlimite</label>
