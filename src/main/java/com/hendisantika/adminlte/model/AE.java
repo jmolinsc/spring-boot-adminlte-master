@@ -34,4 +34,5 @@ public class AE implements Serializable {
     @Column(name = "ACTIVIDADECONOMICA", length = 100, nullable = true)
     @JsonView
     String actividadeconomica;
+
 }

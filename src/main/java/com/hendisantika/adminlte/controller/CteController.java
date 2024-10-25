@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.hendisantika.adminlte.datatable.PagingRequest;
+import com.hendisantika.adminlte.model.AE;
 import com.hendisantika.adminlte.model.Alm;
 import com.hendisantika.adminlte.model.Condicion;
 import com.hendisantika.adminlte.model.Cte;
@@ -82,8 +83,7 @@ public class CteController {
         model.addAttribute("cbopais", paisService.findAllPais());
         model.addAttribute("cboMuncipios", municipioService.findAllMunicipios());
         model.addAttribute("cboDepartamentos", departamentoService.findAllDepartamentos());
-        // model.addAttribute("cbCondicionescredito",
-        // condicionService.findAllCondiciones());
+        model.addAttribute("cbCondicionescredito", condicionService.findAllCondiciones());
         return "cte/form";
     }
 
@@ -99,7 +99,7 @@ public class CteController {
 
     @PostMapping(value = "/save")
     public String save(Cte cte, final RedirectAttributes ra) {
-        Cte save = cteService.save(cte);
+        Cte save = cteService.save(pre_save(cte));
         ra.addFlashAttribute("successFlash", "Cliente creado exitosamente.");
         return "redirect:/cte/edit/" + save.getCliente();
     }
@@ -118,5 +118,13 @@ public class CteController {
             @RequestBody PagingRequest pagingRequest, Model model) {
 
         return cteService.getPaginatedDatatable(pagingRequest);
+    }
+
+    public Cte pre_save(Cte cte) {
+
+        if (cte.getAe().getId()== null) {
+            cte.setAe(new AE());
+        }
+        return cte;
     }
 }

@@ -245,7 +245,6 @@ public class Art implements Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER)
     @JsonIgnore
-
     @JoinColumns({
             @JoinColumn(name = "UNIDADCOMPRA", referencedColumnName = "ID") })
     Unidad unidadcompra;

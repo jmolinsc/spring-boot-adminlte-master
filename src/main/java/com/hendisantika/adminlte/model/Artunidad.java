@@ -14,6 +14,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
+import jakarta.persistence.JoinColumns;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
@@ -36,26 +37,28 @@ import lombok.ToString;
 @ToString
 public class Artunidad implements Serializable {
 
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	@Id
-	@Column(name = "ID", nullable = false)
-	@JsonView
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	Integer id;
+    @Id
+    @Column(name = "ID", nullable = false)
+    @JsonView
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    Integer id;
 
-	@Column(name = "FACTOR", nullable = true)
-	@JsonView
-	BigDecimal factor;
+    @Column(name = "FACTOR", nullable = true)
+    @JsonView
+    BigDecimal factor;
 
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JsonIgnore
-	@JoinColumn(name = "ARTICULO", referencedColumnName = "ARTICULO")
-	Art art;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @Getter(onMethod = @__(
+            @JsonIgnore))
+    @JoinColumns({
+        @JoinColumn(name = "ARTICULO", referencedColumnName = "ARTICULO")})
+    Art art;
 
-	@ManyToOne(fetch = FetchType.EAGER)
-	@JsonIgnore
-	@JoinColumn(name = "IDUNIDAD", referencedColumnName = "ID")
-	Unidad unidad;
+    @ManyToOne(fetch = FetchType.EAGER)
+    @JsonIgnore
+    @JoinColumn(name = "IDUNIDAD", referencedColumnName = "ID")
+    Unidad unidad;
 
 }
