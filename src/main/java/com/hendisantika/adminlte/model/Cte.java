@@ -194,7 +194,7 @@ public class Cte implements Serializable {
 
     @ManyToOne(fetch = FetchType.EAGER, cascade = CascadeType.ALL)
     @JsonIgnore
-    @JoinColumn(name = "IDAE", referencedColumnName = "CODIGO")
+    @JoinColumn(name = "IDAE", referencedColumnName = "ID")
     AE ae;
     // cliente en ventas
     @OneToMany(mappedBy = "cteBycliente", cascade = {CascadeType.REMOVE}, fetch = FetchType.LAZY)

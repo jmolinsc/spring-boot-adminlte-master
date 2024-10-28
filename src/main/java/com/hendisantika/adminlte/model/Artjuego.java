@@ -26,7 +26,6 @@ import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
-
 @Entity
 @Data
 @Getter
@@ -39,7 +38,7 @@ public class Artjuego implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-  
+
     @Column(name = "IDLINEA", nullable = false)
     @JsonView
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -59,9 +58,9 @@ public class Artjuego implements Serializable {
     BigDecimal cantidad;
 
     @ManyToOne(fetch = FetchType.EAGER)
-    @JsonIgnore    @JsonView
-        @JoinColumn(name = "ARTICULOJ", referencedColumnName = "ARTICULO")
+    @JsonIgnore
+    @JsonView
+    @JoinColumn(name = "ARTICULOJ", referencedColumnName = "ARTICULO")
     Art articuloj;
-
 
 }

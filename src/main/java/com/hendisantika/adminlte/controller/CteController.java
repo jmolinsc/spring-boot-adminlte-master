@@ -21,11 +21,13 @@ import com.hendisantika.adminlte.model.AE;
 import com.hendisantika.adminlte.model.Alm;
 import com.hendisantika.adminlte.model.Condicion;
 import com.hendisantika.adminlte.model.Cte;
+import com.hendisantika.adminlte.model.Listaprecios;
 import com.hendisantika.adminlte.model.Pais;
 import com.hendisantika.adminlte.repository.CteRepository;
 import com.hendisantika.adminlte.service.CondicionService;
 import com.hendisantika.adminlte.service.CteService;
 import com.hendisantika.adminlte.service.DepartamentoService;
+import com.hendisantika.adminlte.service.ListapreciosService;
 import com.hendisantika.adminlte.service.MunicipioService;
 import com.hendisantika.adminlte.service.PaisService;
 
@@ -50,6 +52,9 @@ public class CteController {
 
     @Autowired
     CondicionService condicionService;
+
+    @Autowired
+    ListapreciosService listapreciosService;
 
     public String action = "Add";
 
@@ -84,6 +89,7 @@ public class CteController {
         model.addAttribute("cboMuncipios", municipioService.findAllMunicipios());
         model.addAttribute("cboDepartamentos", departamentoService.findAllDepartamentos());
         model.addAttribute("cbCondicionescredito", condicionService.findAllCondiciones());
+        model.addAttribute("cboListaprecios", listapreciosService.findAll());
         return "cte/form";
     }
 
@@ -94,6 +100,7 @@ public class CteController {
         model.addAttribute("cboMuncipios", municipioService.findAllMunicipios());
         model.addAttribute("cboDepartamentos", departamentoService.findAllDepartamentos());
         model.addAttribute("cbCondicionescredito", condicionService.findAllCondiciones());
+        model.addAttribute("cboListaprecios", listapreciosService.findAll());
         return "cte/form";
     }
 
@@ -122,7 +129,7 @@ public class CteController {
 
     public Cte pre_save(Cte cte) {
 
-        if (cte.getAe().getId()== null) {
+        if (cte.getAe().getId() == null) {
             cte.setAe(new AE());
         }
         return cte;
