@@ -56,6 +56,7 @@
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane active" id="datosgenerales">
                                     <div class="row">
+                                        
                                         <div class="form-group col-sm-2">
                                             <label for="cliente">Cliente</label>
                                             <input type="text" class="form-control" th:field="*{cliente}"
@@ -269,27 +270,32 @@
                                             <input type="text" class="form-control" th:field="*{diastramite}"
                                                 id="diastramite" />
                                         </div>
+
+
+                                    </div>
+                                    <div class="row">
+
                                         <div class="form-group col-sm-2">
-                                            <label for="creditoconlimite">Credito Conlimite</label>
-                                            <input type="text" class="form-control" th:field="*{creditoconlimite}"
-                                                id="creditoconlimite" />
+                                            <label for="creditoespecial">Credito Especial</label>
+                                            <input type="checkbox" th:value="${creditoespecial}"
+                                                th:field="*{creditoespecial}" />
                                         </div>
 
-                                        
+                                        <div class="form-group col-sm-2">
+                                            <label for="creditoconlimite">Credito Conlimite</label>
+                                            <input type="checkbox" th:value="${creditoconlimite}"
+                                                th:field="*{creditoconlimite}" />
+                                        </div>
+
                                         <div class="form-group col-sm-2">
                                             <label for="creditolimite">Credito Limite</label>
                                             <input type="text" class="form-control" th:field="*{creditolimite}"
                                                 id="creditolimite" />
                                         </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="form-group col-sm-2">
-                                            <label for="creditoespecial">Credito Especial</label>
-                                            <input type="text" class="form-control" th:field="*{creditoespecial}"
-                                                id="creditoespecial" />
-                                        </div>
 
                                     </div>
+
+
                                 </div>
 
                                 <div role="tabpanel" class="tab-pane" id="otros">
