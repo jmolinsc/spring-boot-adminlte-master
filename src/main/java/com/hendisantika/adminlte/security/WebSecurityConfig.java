@@ -68,6 +68,22 @@ public class WebSecurityConfig {
             User userDetails = new User("admin", encoder.encode("1234"), authorities);
             userDetailsService.createUser(userDetails);
         }
+        
+        // Create sasuke user as mentioned in README
+        if (!userDetailsService.userExists("sasuke")) {
+            List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+            authorities.add(new SimpleGrantedAuthority("USER"));
+            User userDetails = new User("sasuke", encoder.encode("1234"), authorities);
+            userDetailsService.createUser(userDetails);
+        }
+        
+        // Create naruto user as mentioned in README
+        if (!userDetailsService.userExists("naruto")) {
+            List<GrantedAuthority> authorities = new ArrayList<GrantedAuthority>();
+            authorities.add(new SimpleGrantedAuthority("USER"));
+            User userDetails = new User("naruto", encoder.encode("1234"), authorities);
+            userDetailsService.createUser(userDetails);
+        }
     }
 
 }
